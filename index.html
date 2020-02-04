@@ -1,13 +1,176 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>Austin Rognes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Austin Rognes's superb portfolio.">
+    <meta name="keywords" content="">
+    <meta name="author" content="Austin Rognes">
+    <!--<link href="style.css" rel="stylesheet">-->
+    <style>
+
+    html, body {
+      margin: 0;
+      border: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: #222;
+      font: 16px/1.4 'Manjari', sans-serif;
+    }
+
+    #title {
+      position: relative;
+      padding: 10px;
+      top:-30px;
+      text-align: center;
+      font: 40px/1.0 'Manjari', sans-serif;
+      height: 110px;
+      background-color: #8ef;
+      color: #000;
+    }
+
+    #title a {
+      position:relative;
+      background-size: 32px;
+      background-repeat:no-repeat;
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      text-decoration: none;
+      cursor: pointer;
+      white-space:nowrap;
+      top:-40px;
+    }
+
+    #showcase {
+      color: #fff;
+      min-width: 360px;
+    }
+
+    #showcaseDesc {
+      float: left;
+      width: 52vw;
+      padding-left: 2vw;
+      position: relative;
+      top:-60px;
+      font-size: 14px;
+      white-space: normal;
+    }
+
+    #showcaseGraphic {
+      width: 40vw;
+      border-radius: 8px;
+      float: left;
+    }
+
+    #showcaseLink {
+      width: 32px;
+      height: 32px;
+      margin: 2px;
+      position: relative;
+      bottom: 0px;
+      background-size: 32px;
+      background-repeat:no-repeat;
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+      left:-76px;
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+    }
+
+    #repoLight {
+      background-color: #333;
+      padding: 4%;
+      width: 100vw;
+      height: 40vw;
+      display: inline-block;
+
+    }
+
+    #repoDark {
+      background-color: #444;
+      padding: 4%;
+      width: 100vw;
+      height: 40vw;
+      display: inline-block;
+    }
+
+    </style>
+
+	  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
+  </head>
   <body>
-    <h1>Portfolioli</h1>
-    <p>Austin Rognes</p>
-    <h1><a href="TileGrid">TileGrid repo demo</a></h1>
-    <p>Fun mobile compatible grid that runs Conway's Game of Life and the obligatory A* pathfinding.</p>
-    <h1><a href="IowaStateAI">Iowa State Artificial Intelligence Club website</a></h1>
-    <p>Currently in the works.</p>
-    <h1><a href="WADEtheDrone">WADE the Drone</a></h1>
-    <p>MinneHacks Major League Hacking 24 hour Hackathon</p>
+    <div id="title">
+      <p>Austin Rognes</p>
+      <a href="https://github.com/ARognes" target="_blank" style="background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
+      <a href="https://www.linkedin.com/in/austin-rognes-7858aa171" target="_blank" style="background-image: url('https://image.flaticon.com/icons/png/512/61/61109.png'); right: -10px;"></a>
+    </div>
+
+    <div id="showcase">
+      <h1 style="margin: 4%;">Repositories</h1>
+
+      <div id="repoDark">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEXl5eX39/f09PTp6ens7Ozn5+fy8vLv7+9RgCZqAAADm0lEQVR4nO2d7XqjIBBGWz/v/443aXefqAEEHd6Zbs/5neCcgICDkI8PAAAAAAAAAAAAAAAAAAAAAAAAAAAA+K2M07IM/izrNHfxW4fPOCyjud8Yye/Jaiw4eQu9M/zvgg9Fw7tx9JZJs9gZeqvkmKwEQ7bRL6wMvT3yGFVi0LvwiVF/um6LDMBW0aY7XV4Frn2mS22M5oabH82kvNtsej6bydvL0HAAusPYz9B2onQZDJvBUA6GzWD4ZFZOBdSG87Q8ZlLPBJF97iSN1nCfvzF7YCuiNHzLTw0KR6Fh6rnKOgeWQGeYfnDsrygzzD0Zd1dUGc4Zwf79jcqwkATvPDiKDEsJuM7PkSLD4jpG30rUGJYTcH07G43hmvD6TH2wAxrDk8U2kwvn0BiWBdtvxKEhVolhfjC8dOV5aPlKCMO2QX8emqL9eYbz0BZuiPuw5crz0PitEH1pS0+zKaou4AjjYcNoMe9+q6qINYbldeH6iel8aAw1IWsMj5G1x5kppuKropl3sZleKLshaJFhabyoHSvSDeE0atUTcP5OrL0Lcy39LGxZnmZJBPf1qcqhIn8rn8Sty7VdrIK/lPqqchHCfGmyFmsver0zVua83zvU+030PHTpusUhrV+d1D8TLMYuXnsaX+8OL9VvJ58LloLXrx+O4/RgbJhtV71wnI0+/hpwTQ2Wwg9vWCuYjT+6Yb1gTiC4YYtgxiC4YeOuhpRCaMO2Gsw4RDZsF0xJBDa8IpiwCGx4cWfRUcPZMP921LUaTHj4Gs5D7uniuuBRxNXwqZFWvCN4MPE0/NZIKd4T3Kt4Gg7Zz93evrhx8TN81dOxFu/W4F7GzXCrsVe0ENy8/eBluNfYKpoIbtLMToZHjY2izRZid8M3jX8ftqlBd8OUxnctWgk6G6Y1nopmgr6GOY2Hot02flfDrMZgJ+hpaNcQgxqKBP0MVYJuhjJBN0OZoJOhrgadDJWCLoZSQRdDqaCDobYGHQzVgnJDuaDcUC6oNjx7zxtDDDHEEEMMMcQQQwwxxDCooXqVe5IT4E0FGRg2g6EcDJv5TYacQSvC3HCxLvAu5gFtt1Gu+rnMG9t0u82BVHGP1TfbTOftkcfqxK3ctnR/rE5NC/vXAXaj18lRLW4YHnynXy2swfIESv2KbwW2R2zO8Rqq+exjilWNS4/DJ6cwo8bQ72DteQxAhP9JAQAAAAAAAAAAAAAAAAAAAAAAAAAACMsfYxg6Q+/G54IAAAAASUVORK5CYII="
+        alt="TileGrid Display" align="middle" id="showcaseGraphic"></img>
+
+        <a href="TileGrid" target="_blank" id="showcaseLink" style="background-image: url('https://image.flaticon.com/icons/svg/61/61353.svg');"></a>
+        <a href="https://github.com/ARognes/TileGrid" target="_blank" id="showcaseLink" style="background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
+
+        <div id="showcaseDesc">
+          <h3>Tile Grid</h3>
+          <p style="position: relative; top: -18px;">Responsive grid that runs Conway's Game of Life and obligatory A* pathfinding because why not.</p>
+        </div>
+      </div>
+
+
+      <div id="repoLight">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEXl5eX39/f09PTp6ens7Ozn5+fy8vLv7+9RgCZqAAADm0lEQVR4nO2d7XqjIBBGWz/v/443aXefqAEEHd6Zbs/5neCcgICDkI8PAAAAAAAAAAAAAAAAAAAAAAAAAAAA+K2M07IM/izrNHfxW4fPOCyjud8Yye/Jaiw4eQu9M/zvgg9Fw7tx9JZJs9gZeqvkmKwEQ7bRL6wMvT3yGFVi0LvwiVF/um6LDMBW0aY7XV4Frn2mS22M5oabH82kvNtsej6bydvL0HAAusPYz9B2onQZDJvBUA6GzWD4ZFZOBdSG87Q8ZlLPBJF97iSN1nCfvzF7YCuiNHzLTw0KR6Fh6rnKOgeWQGeYfnDsrygzzD0Zd1dUGc4Zwf79jcqwkATvPDiKDEsJuM7PkSLD4jpG30rUGJYTcH07G43hmvD6TH2wAxrDk8U2kwvn0BiWBdtvxKEhVolhfjC8dOV5aPlKCMO2QX8emqL9eYbz0BZuiPuw5crz0PitEH1pS0+zKaou4AjjYcNoMe9+q6qINYbldeH6iel8aAw1IWsMj5G1x5kppuKropl3sZleKLshaJFhabyoHSvSDeE0atUTcP5OrL0Lcy39LGxZnmZJBPf1qcqhIn8rn8Sty7VdrIK/lPqqchHCfGmyFmsver0zVua83zvU+030PHTpusUhrV+d1D8TLMYuXnsaX+8OL9VvJ58LloLXrx+O4/RgbJhtV71wnI0+/hpwTQ2Wwg9vWCuYjT+6Yb1gTiC4YYtgxiC4YeOuhpRCaMO2Gsw4RDZsF0xJBDa8IpiwCGx4cWfRUcPZMP921LUaTHj4Gs5D7uniuuBRxNXwqZFWvCN4MPE0/NZIKd4T3Kt4Gg7Zz93evrhx8TN81dOxFu/W4F7GzXCrsVe0ENy8/eBluNfYKpoIbtLMToZHjY2izRZid8M3jX8ftqlBd8OUxnctWgk6G6Y1nopmgr6GOY2Hot02flfDrMZgJ+hpaNcQgxqKBP0MVYJuhjJBN0OZoJOhrgadDJWCLoZSQRdDqaCDobYGHQzVgnJDuaDcUC6oNjx7zxtDDDHEEEMMMcQQQwwxxDCooXqVe5IT4E0FGRg2g6EcDJv5TYacQSvC3HCxLvAu5gFtt1Gu+rnMG9t0u82BVHGP1TfbTOftkcfqxK3ctnR/rE5NC/vXAXaj18lRLW4YHnynXy2swfIESv2KbwW2R2zO8Rqq+exjilWNS4/DJ6cwo8bQ72DteQxAhP9JAQAAAAAAAAAAAAAAAAAAAAAAAAAACMsfYxg6Q+/G54IAAAAASUVORK5CYII="
+        alt="IowaStateAI Display" align="middle" id="showcaseGraphic">
+        </img>
+
+        <a href="IowaStateAI" target="_blank" id="showcaseLink" style="background-image: url('https://image.flaticon.com/icons/svg/61/61353.svg');"></a>
+        <a href="https://github.com/ARognes/IowaStateAI" target="_blank" id="showcaseLink" style="background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
+
+        <div id="showcaseDesc">
+          <h3>AI Club Website ISU</h3>
+          <p>Currently in the works... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+        </div>
+      </div>
+
+      <div id="repoDark">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEXl5eX39/f09PTp6ens7Ozn5+fy8vLv7+9RgCZqAAADm0lEQVR4nO2d7XqjIBBGWz/v/443aXefqAEEHd6Zbs/5neCcgICDkI8PAAAAAAAAAAAAAAAAAAAAAAAAAAAA+K2M07IM/izrNHfxW4fPOCyjud8Yye/Jaiw4eQu9M/zvgg9Fw7tx9JZJs9gZeqvkmKwEQ7bRL6wMvT3yGFVi0LvwiVF/um6LDMBW0aY7XV4Frn2mS22M5oabH82kvNtsej6bydvL0HAAusPYz9B2onQZDJvBUA6GzWD4ZFZOBdSG87Q8ZlLPBJF97iSN1nCfvzF7YCuiNHzLTw0KR6Fh6rnKOgeWQGeYfnDsrygzzD0Zd1dUGc4Zwf79jcqwkATvPDiKDEsJuM7PkSLD4jpG30rUGJYTcH07G43hmvD6TH2wAxrDk8U2kwvn0BiWBdtvxKEhVolhfjC8dOV5aPlKCMO2QX8emqL9eYbz0BZuiPuw5crz0PitEH1pS0+zKaou4AjjYcNoMe9+q6qINYbldeH6iel8aAw1IWsMj5G1x5kppuKropl3sZleKLshaJFhabyoHSvSDeE0atUTcP5OrL0Lcy39LGxZnmZJBPf1qcqhIn8rn8Sty7VdrIK/lPqqchHCfGmyFmsver0zVua83zvU+030PHTpusUhrV+d1D8TLMYuXnsaX+8OL9VvJ58LloLXrx+O4/RgbJhtV71wnI0+/hpwTQ2Wwg9vWCuYjT+6Yb1gTiC4YYtgxiC4YeOuhpRCaMO2Gsw4RDZsF0xJBDa8IpiwCGx4cWfRUcPZMP921LUaTHj4Gs5D7uniuuBRxNXwqZFWvCN4MPE0/NZIKd4T3Kt4Gg7Zz93evrhx8TN81dOxFu/W4F7GzXCrsVe0ENy8/eBluNfYKpoIbtLMToZHjY2izRZid8M3jX8ftqlBd8OUxnctWgk6G6Y1nopmgr6GOY2Hot02flfDrMZgJ+hpaNcQgxqKBP0MVYJuhjJBN0OZoJOhrgadDJWCLoZSQRdDqaCDobYGHQzVgnJDuaDcUC6oNjx7zxtDDDHEEEMMMcQQQwwxxDCooXqVe5IT4E0FGRg2g6EcDJv5TYacQSvC3HCxLvAu5gFtt1Gu+rnMG9t0u82BVHGP1TfbTOftkcfqxK3ctnR/rE5NC/vXAXaj18lRLW4YHnynXy2swfIESv2KbwW2R2zO8Rqq+exjilWNS4/DJ6cwo8bQ72DteQxAhP9JAQAAAAAAAAAAAAAAAAAAAAAAAAAACMsfYxg6Q+/G54IAAAAASUVORK5CYII="
+        alt="RognesCorp Display" align="middle" id="showcaseGraphic"></img>
+
+        <a href="RognesCorp" target="_blank" id="showcaseLink" style="background-image: url('https://image.flaticon.com/icons/svg/61/61353.svg');"></a>
+        <a href="https://github.com/ARognes/RognesCorp" target="_blank" id="showcaseLink" style="background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
+
+        <div id="showcaseDesc">
+          <h3>RognesCorp Website</h3>
+          <p style="position: relative; top: -18px;">Made a website for my dads business with plain html/js/css.</p>
+        </div>
+      </div>
+
+      <div id="repoLight">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEXl5eX39/f09PTp6ens7Ozn5+fy8vLv7+9RgCZqAAADm0lEQVR4nO2d7XqjIBBGWz/v/443aXefqAEEHd6Zbs/5neCcgICDkI8PAAAAAAAAAAAAAAAAAAAAAAAAAAAA+K2M07IM/izrNHfxW4fPOCyjud8Yye/Jaiw4eQu9M/zvgg9Fw7tx9JZJs9gZeqvkmKwEQ7bRL6wMvT3yGFVi0LvwiVF/um6LDMBW0aY7XV4Frn2mS22M5oabH82kvNtsej6bydvL0HAAusPYz9B2onQZDJvBUA6GzWD4ZFZOBdSG87Q8ZlLPBJF97iSN1nCfvzF7YCuiNHzLTw0KR6Fh6rnKOgeWQGeYfnDsrygzzD0Zd1dUGc4Zwf79jcqwkATvPDiKDEsJuM7PkSLD4jpG30rUGJYTcH07G43hmvD6TH2wAxrDk8U2kwvn0BiWBdtvxKEhVolhfjC8dOV5aPlKCMO2QX8emqL9eYbz0BZuiPuw5crz0PitEH1pS0+zKaou4AjjYcNoMe9+q6qINYbldeH6iel8aAw1IWsMj5G1x5kppuKropl3sZleKLshaJFhabyoHSvSDeE0atUTcP5OrL0Lcy39LGxZnmZJBPf1qcqhIn8rn8Sty7VdrIK/lPqqchHCfGmyFmsver0zVua83zvU+030PHTpusUhrV+d1D8TLMYuXnsaX+8OL9VvJ58LloLXrx+O4/RgbJhtV71wnI0+/hpwTQ2Wwg9vWCuYjT+6Yb1gTiC4YYtgxiC4YeOuhpRCaMO2Gsw4RDZsF0xJBDa8IpiwCGx4cWfRUcPZMP921LUaTHj4Gs5D7uniuuBRxNXwqZFWvCN4MPE0/NZIKd4T3Kt4Gg7Zz93evrhx8TN81dOxFu/W4F7GzXCrsVe0ENy8/eBluNfYKpoIbtLMToZHjY2izRZid8M3jX8ftqlBd8OUxnctWgk6G6Y1nopmgr6GOY2Hot02flfDrMZgJ+hpaNcQgxqKBP0MVYJuhjJBN0OZoJOhrgadDJWCLoZSQRdDqaCDobYGHQzVgnJDuaDcUC6oNjx7zxtDDDHEEEMMMcQQQwwxxDCooXqVe5IT4E0FGRg2g6EcDJv5TYacQSvC3HCxLvAu5gFtt1Gu+rnMG9t0u82BVHGP1TfbTOftkcfqxK3ctnR/rE5NC/vXAXaj18lRLW4YHnynXy2swfIESv2KbwW2R2zO8Rqq+exjilWNS4/DJ6cwo8bQ72DteQxAhP9JAQAAAAAAAAAAAAAAAAAAAAAAAAAACMsfYxg6Q+/G54IAAAAASUVORK5CYII="
+        alt="BattleCode Display" align="middle" id="showcaseGraphic"></img>
+
+        <a href="https://github.com/ARognes/BattleCode" target="_blank" id="showcaseLink" style="left: -36px; background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
+
+        <div id="showcaseDesc">
+          <h3>MIT BattleCode 2020</h3>
+          <p style="position: relative; top: -18px;">Competed in an artificial intelligence competetion. Implemented multiple pathfinding algorithms such as bug0-2 and the tangent bug.</p>
+        </div>
+      </div>
+
+    </div>
   </body>
 </html>
