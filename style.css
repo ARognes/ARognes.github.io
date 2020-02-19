@@ -7,9 +7,9 @@ html, body {
   margin: 0;
   border: 0;
   padding: 0;
+  height: 5000px;
 
   font: 16px/1.3 'Inconsolata', sans-serif;
-  min-width: 360px;
   background-color: #fff;
   color: #000;
 }
@@ -21,20 +21,38 @@ html::-webkit-scrollbar { width: 0 !important }
   top:0;
   width: 100%;
   text-align: center;
-  font: 40px/1.0 'VanillaExtract', sans-serif;
+  font: 40px/normal 'VanillaExtract', sans-serif;
+  white-space: nowrap;
   height: 120px;
 }
 
+#cursor {
+  position: relative; 
+  top: -165px; 
+    right: -142px;
+}
+
+@media(max-width: 380px) {
+  #title {
+    font: 30px/1.6 'VanillaExtract', sans-serif;
+  }
+
+  #cursor {
+    top: -142px; 
+    right: -118px;
+  }
+}
+
 #title a {
-  position:relative;
+  position: relative;
   background-size: 32px;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   display: inline-block;
   width: 32px;
   height: 32px;
   text-decoration: none;
   cursor: pointer;
-  white-space:nowrap;
+  white-space: nowrap;
 
 }
 
