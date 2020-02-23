@@ -3,23 +3,24 @@
  * @date 2/4/2020
  */
 
-let typewriterElem = [document.getElementById('title').childNodes[1], document.getElementById('title').childNodes[3], document.getElementById('about').childNodes[1], document.getElementById('about').childNodes[3], document.getElementById('about').childNodes[5],document.getElementById('about').childNodes[7]];
+ // typewriter initialization
+let typewriterElem = [document.getElementById('title').childNodes[1], document.getElementById('title').childNodes[3]];
 let typewriterTemp = [];
 let blinker = document.getElementById('title').childNodes[5];
 let blinkerStartTime;
-//let blinkerIndex = 0;
 for(let i=0; i<typewriterElem.length; i++) {
   typewriterTemp[i] = typewriterElem[i].innerHTML;
   typewriterElem[i].innerHTML = null;
 }
-
 animTypeWriter(0);
 
-/*function startAnim() {
+// about me section animatin
+/*let aboutTxt = [];
+let aboutMeChildren = document.getElementById('about').childNodes;
+for(let i=1; i<aboutMeChildren.length; i+=2) aboutTxt[Math.floor(i/2)] = aboutMeChildren[i];
+animRise(0);*/
 
-  animTypeWriter();
 
-}*/
 
 function animTypeWriter(blinkerIndex) {
 
@@ -27,16 +28,13 @@ function animTypeWriter(blinkerIndex) {
     if(typewriterElem[blinkerIndex].innerHTML.length >= typewriterTemp[blinkerIndex].length) {
       typewriterElem[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex];  // remove '|' once done
       blinkerIndex++;
-      console.log(blinkerIndex);
+
       // finished all lines
       if(blinkerIndex == 2) {
         blinkerStartTime = Date.now();
         blinkCursor();
-        
-        
-        for(let i=blinkerIndex; i < typewriterElem.length; i++) setTimeout(() => {animTypeWriter(i)}, 40);
         return;
-      } else if(blinkerIndex > 2) return;
+      }
     }
     
     let next = typewriterElem[blinkerIndex].innerHTML.length;
@@ -53,10 +51,6 @@ function animTypeWriter(blinkerIndex) {
     } else while(typewriterTemp[blinkerIndex][next + 1] === " ") next++;
 
     typewriterElem[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex].substr(0, next) + "|";
-
-
-
-
   setTimeout(() => {animTypeWriter(blinkerIndex)}, 40);
 }
 
@@ -73,6 +67,21 @@ function blinkCursor() {
 
   setTimeout(blinkCursor, 500);
 }
+
+/*function animRise(index) {
+
+  aboutTxt[index].style.opacity = Number(aboutTxt[index].style.opacity) + 0.05;
+  console.log(aboutTxt[index].style.opacity);
+
+  if(aboutTxt[index].style.opacity == 1) {
+    if(index < aboutTxt.length - 1) setTimeout(() => {animRise(++index)}, 500);
+    return;
+  }
+
+  setTimeout(() => {animRise(index)}, 5);
+}*/
+
+
 
 function shakeLinks(elem) {
   shakeLinksTime(elem.parentElement.children[1], elem.parentElement.children[2], 0);
