@@ -4,21 +4,13 @@
  */
 
  // typewriter initialization
-let typewriterElem = [document.getElementById('title').childNodes[1], document.getElementById('title').childNodes[3]];
+let typewriterElem = [document.getElementById('title').childNodes[5], document.getElementById('title').childNodes[7]];
 let typewriterTemp = [];
-let blinker = document.getElementById('title').childNodes[5];
-let blinkerStartTime;
 for(let i=0; i<typewriterElem.length; i++) {
   typewriterTemp[i] = typewriterElem[i].innerHTML;
   typewriterElem[i].innerHTML = null;
 }
 animTypeWriter(0);
-
-// about me section animatin
-/*let aboutTxt = [];
-let aboutMeChildren = document.getElementById('about').childNodes;
-for(let i=1; i<aboutMeChildren.length; i+=2) aboutTxt[Math.floor(i/2)] = aboutMeChildren[i];
-animRise(0);*/
 
 
 
@@ -31,7 +23,6 @@ function animTypeWriter(blinkerIndex) {
 
       // finished all lines
       if(blinkerIndex == 2) {
-        blinkerStartTime = Date.now();
         blinkCursor();
         return;
       }
@@ -41,7 +32,6 @@ function animTypeWriter(blinkerIndex) {
 
     // treat html tag as a single character (expecting <a></a>)
     if(typewriterTemp[blinkerIndex][next] === '<') {
-
       // find 2 greater-than signs
       next++;
       while(typewriterTemp[blinkerIndex][next] !== '>') next++;
@@ -57,8 +47,7 @@ function animTypeWriter(blinkerIndex) {
 function blinkCursor() {
   if(typewriterElem[1].innerHTML[typewriterElem[1].innerHTML.length - 1] !== "|") {
     typewriterElem[1].innerHTML += "|";
-    if(window.innerWidth <= 380) typewriterElem[1].style.left = "3.1px";
-    else typewriterElem[1].style.left = "4px";
+    typewriterElem[1].style.left = "8.4px";
   }
   else {
     typewriterElem[1].innerHTML = typewriterTemp[1];
@@ -73,7 +62,6 @@ let languages = document.getElementById('languages');
 // set repos to visible through transition
 
 var observer = new IntersectionObserver(function(entries) {
-  console.log(entries[0].intersectionRatio);
 	if(entries[0].intersectionRatio === 0) {
     languages.classList.add('languages-sticky');
   } else if(entries[0].intersectionRatio === 1)
