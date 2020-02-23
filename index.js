@@ -68,6 +68,23 @@ function blinkCursor() {
   setTimeout(blinkCursor, 500);
 }
 
+let languages = document.getElementById('languages');
+// also color the languageIcons here
+// set repos to visible through transition
+
+var observer = new IntersectionObserver(function(entries) {
+  console.log(entries[0].intersectionRatio);
+	if(entries[0].intersectionRatio === 0) {
+    languages.classList.add('languages-sticky');
+  } else if(entries[0].intersectionRatio === 1)
+    languages.classList.remove('languages-sticky');
+}, { threshold: [0,1] });
+
+observer.observe(document.querySelector("#languages-top"));
+
+
+
+
 /*function animRise(index) {
 
   aboutTxt[index].style.opacity = Number(aboutTxt[index].style.opacity) + 0.05;

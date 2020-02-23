@@ -59,14 +59,34 @@ html::-webkit-scrollbar { width: 0 !important }
   position: -webkit-sticky;
   position: sticky;
   z-index: 2;
-  top: 2vw;
+  top: 0;
   background-color: #bbb;
   display: flex;
   justify-content: space-between;
   height: 10vw;
-  width: 96vw;
-  left: 2vw;
+  margin: 0 2vw;
   border-radius: 20px 20px 20px 20px;
+
+  transition: all 0.2s ease;
+}
+
+#languages-top {
+  height: 1px;
+  position: relative;
+  visibility: hidden;
+}
+
+.languages-sticky {
+  background-color: #999 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  height: 20vw !important;
+}
+
+.languageIcon {
+  height: 8vw;
+  margin: auto;
+  margin-top: 1vw;
 }
 
 #showcase {
@@ -185,7 +205,3 @@ html::-webkit-scrollbar { width: 0 !important }
   float: right;
 }
 
-.languageIcon {
-  height: 8vw;
-  margin: auto;
-}
