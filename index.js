@@ -47,7 +47,7 @@ function animTypeWriter(blinkerIndex) {
 function blinkCursor() {
   if(typewriterElem[1].innerHTML[typewriterElem[1].innerHTML.length - 1] !== "|") {
     typewriterElem[1].innerHTML += "|";
-    typewriterElem[1].style.left = "8.4px";
+    typewriterElem[1].style.left = "8.3px";
   }
   else {
     typewriterElem[1].innerHTML = typewriterTemp[1];
