@@ -23,7 +23,7 @@ html::-webkit-scrollbar { width: 0 !important }
   text-align: center;
   overflow: hidden;
 
-  font: 40px/normal 'VanillaExtract', sans-serif;
+  font: 40px/1.4 'VanillaExtract', sans-serif;
   white-space: nowrap;
   height: 140px;
 }
@@ -31,7 +31,7 @@ html::-webkit-scrollbar { width: 0 !important }
 @media(max-width: 380px) {
   #title {
     font: 30px/1.6 'VanillaExtract', sans-serif;
-    height: 100px;
+    height: 90px;
   }
 }
 
@@ -49,8 +49,10 @@ html::-webkit-scrollbar { width: 0 !important }
 
 #about {
   position: relative; 
-  margin: 0 4% 0 4%;
+  top: 0;
+  margin: 0 4%;
   height: 30vh;
+  color: #888;
 }
 
 #languages {
@@ -83,11 +85,6 @@ html::-webkit-scrollbar { width: 0 !important }
   left: 0;
   right: 0;
   height: 160px;
-
-  /*border-radius: 20px;
-  -moz-box-shadow: 0 0 40px black;
-  -webkit-box-shadow: 0 0 40px black;
-  box-shadow: 0 0 40px black;*/
 }
 
 .repo:nth-child(odd) {

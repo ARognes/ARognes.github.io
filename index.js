@@ -3,28 +3,40 @@
  * @date 2/4/2020
  */
 
-let typewriterElem = [document.getElementById('title').childNodes[1], document.getElementById('title').childNodes[3]];
-let typewriterTemp = ["Austin_Rognes =", typewriterElem[1].innerHTML];
+let typewriterElem = [document.getElementById('title').childNodes[1], document.getElementById('title').childNodes[3], document.getElementById('about').childNodes[1], document.getElementById('about').childNodes[3], document.getElementById('about').childNodes[5],document.getElementById('about').childNodes[7]];
+let typewriterTemp = [];
 let blinker = document.getElementById('title').childNodes[5];
 let blinkerStartTime;
-let blinkerIndex = 0;
-for(let i=0; i<typewriterElem.length; i++) typewriterElem[i].innerHTML = null;
+//let blinkerIndex = 0;
+for(let i=0; i<typewriterElem.length; i++) {
+  typewriterTemp[i] = typewriterElem[i].innerHTML;
+  typewriterElem[i].innerHTML = null;
+}
 
-animTypeWriter();
+animTypeWriter(0);
 
-function animTypeWriter() {
+/*function startAnim() {
+
+  animTypeWriter();
+
+}*/
+
+function animTypeWriter(blinkerIndex) {
 
     // end of line
     if(typewriterElem[blinkerIndex].innerHTML.length >= typewriterTemp[blinkerIndex].length) {
       typewriterElem[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex];  // remove '|' once done
       blinkerIndex++;
-
+      console.log(blinkerIndex);
       // finished all lines
-      if(blinkerIndex >= typewriterElem.length) {
+      if(blinkerIndex == 2) {
         blinkerStartTime = Date.now();
         blinkCursor();
+        
+        
+        for(let i=blinkerIndex; i < typewriterElem.length; i++) setTimeout(() => {animTypeWriter(i)}, 40);
         return;
-      }
+      } else if(blinkerIndex > 2) return;
     }
     
     let next = typewriterElem[blinkerIndex].innerHTML.length;
@@ -41,7 +53,11 @@ function animTypeWriter() {
     } else while(typewriterTemp[blinkerIndex][next + 1] === " ") next++;
 
     typewriterElem[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex].substr(0, next) + "|";
-  setTimeout(animTypeWriter, 40);
+
+
+
+
+  setTimeout(() => {animTypeWriter(blinkerIndex)}, 40);
 }
 
 function blinkCursor() {
