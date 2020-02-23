@@ -17,29 +17,21 @@ html, body {
 html::-webkit-scrollbar { width: 0 !important }
 
 #title {
-  position: absolute;
+  position: relative;
   top:0;
-  width: 100%;
+  width: 100vw;
   text-align: center;
+  overflow: hidden;
+
   font: 40px/normal 'VanillaExtract', sans-serif;
   white-space: nowrap;
-  height: 120px;
-}
-
-#cursor {
-  position: relative; 
-  top: -165px; 
-    right: -142px;
+  height: 140px;
 }
 
 @media(max-width: 380px) {
   #title {
     font: 30px/1.6 'VanillaExtract', sans-serif;
-  }
-
-  #cursor {
-    top: -142px; 
-    right: -118px;
+    height: 100px;
   }
 }
 
@@ -53,12 +45,10 @@ html::-webkit-scrollbar { width: 0 !important }
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
-
 }
 
 #about {
-  position: absolute; 
-  top: 120px;
+  position: relative; 
   margin: 0 4% 0 4%;
   height: 30vh;
 }
@@ -170,35 +160,4 @@ html::-webkit-scrollbar { width: 0 !important }
 .languageIcon {
   height: 8vw;
   margin: auto;
-}
-
-@media (min-width: 600px) and (orientation: landscape) {
-  html {
-    margin: 0 20% 0 20%;
-    background-color: #000;
-  }
-
-  body {
-    background-color: #222;
-  }
-
-  #showcase {
-    top: 60px;
-    left: 0;
-  }
-
-  #languages {
-    padding: 10px;
-    height: 40px;
-    top: 10px;
-  }
-
-  .languageIcon {
-    height: 90%;
-    margin: auto;
-  }
-  
-  .repo {
-    padding: 0.5%;
-  }
 }

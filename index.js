@@ -3,7 +3,6 @@
  * @date 2/4/2020
  */
 
-let typewriterSpeed = 200;
 let typewriterElem = [document.getElementById('title').childNodes[1], document.getElementById('title').childNodes[3]];
 let typewriterTemp = ["Austin_Rognes =", typewriterElem[1].innerHTML];
 let blinker = document.getElementById('title').childNodes[5];
@@ -42,14 +41,19 @@ function animTypeWriter() {
     } else while(typewriterTemp[blinkerIndex][next + 1] === " ") next++;
 
     typewriterElem[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex].substr(0, next) + "|";
-  setTimeout(animTypeWriter, 60);
+  setTimeout(animTypeWriter, 40);
 }
 
 function blinkCursor() {
-  //typewriterElem[1].innerHTML = typewriterTemp[1] + ((Math.floor(Date.now()/500) % 2 == 0) ? "|" : " ");
-
-  if(Math.floor((Date.now() - blinkerStartTime)/500) % 2 == 0) blinker.innerHTML = "|";
-  else blinker.innerHTML = "";
+  if(typewriterElem[1].innerHTML[typewriterElem[1].innerHTML.length - 1] !== "|") {
+    typewriterElem[1].innerHTML += "|";
+    if(window.innerWidth <= 380) typewriterElem[1].style.left = "3.1px";
+    else typewriterElem[1].style.left = "4px";
+  }
+  else {
+    typewriterElem[1].innerHTML = typewriterTemp[1];
+    typewriterElem[1].style.left = "0";
+  }
 
   setTimeout(blinkCursor, 500);
 }
