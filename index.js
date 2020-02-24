@@ -18,7 +18,6 @@ function animTypeWriter(blinkerIndex) {
 
     // end of line
     if(typewriterElem[blinkerIndex].innerHTML.length >= typewriterTemp[blinkerIndex].length) {
-      typewriterElem[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex];  // remove '|' once done
       blinkerIndex++;
 
       // finished all lines
@@ -40,7 +39,9 @@ function animTypeWriter(blinkerIndex) {
       next++;
     } else while(typewriterTemp[blinkerIndex][next + 1] === " ") next++;
 
-    typewriterElem[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex].substr(0, next) + "|";
+    
+    typewriterElem[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex].substr(0, next);
+    if(typewriterElem[blinkerIndex].innerHTML.length < typewriterTemp[blinkerIndex].length) typewriterElem[blinkerIndex].innerHTML += "|";
   setTimeout(() => {animTypeWriter(blinkerIndex)}, 40);
 }
 
