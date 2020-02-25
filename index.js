@@ -12,8 +12,6 @@ for(let i=0; i<typewriterElem.length; i++) {
 }
 animTypeWriter(0);
 
-
-
 function animTypeWriter(blinkerIndex) {
 
     // end of line
