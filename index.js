@@ -10,7 +10,10 @@ for(let i=0; i<typewriterElem.length; i++) {
   typewriterTemp[i] = typewriterElem[i].innerHTML;
   typewriterElem[i].innerHTML = null;
 }
-animTypeWriter(0);
+
+window.addEventListener('load', function () {
+  animTypeWriter(0);
+});
 
 function animTypeWriter(blinkerIndex) {
 
@@ -40,7 +43,7 @@ function animTypeWriter(blinkerIndex) {
     
     typewriterElem[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex].substr(0, next);
     if(typewriterElem[blinkerIndex].innerHTML.length < typewriterTemp[blinkerIndex].length) typewriterElem[blinkerIndex].innerHTML += "|";
-  setTimeout(() => {animTypeWriter(blinkerIndex)}, 40);
+  setTimeout(() => {animTypeWriter(blinkerIndex)}, 50);
 }
 
 function blinkCursor() {
@@ -68,24 +71,6 @@ var observer = new IntersectionObserver(function(entries) {
 }, { threshold: [0,1] });
 
 observer.observe(document.querySelector("#languages-top"));
-
-
-
-
-/*function animRise(index) {
-
-  aboutTxt[index].style.opacity = Number(aboutTxt[index].style.opacity) + 0.05;
-  console.log(aboutTxt[index].style.opacity);
-
-  if(aboutTxt[index].style.opacity == 1) {
-    if(index < aboutTxt.length - 1) setTimeout(() => {animRise(++index)}, 500);
-    return;
-  }
-
-  setTimeout(() => {animRise(index)}, 5);
-}*/
-
-
 
 function shakeLinks(elem) {
   shakeLinksTime(elem.parentElement.children[1], elem.parentElement.children[2], 0);
