@@ -3,12 +3,59 @@
  * @startdate 2/4/2020
 */
 
-function experience() {
-  return "I've";
-  console.log("arst");
+// get context and add input listeners
+var canvas = document.getElementById('bioAnim'), ctx = canvas.getContext('2d');
+let dpx = window.devicePixelRatio || 1;
+ctx.scale(dpx, dpx);
+let w = canvas.width = window.innerWidth;
+let h = canvas.height = window.innerHeight;
+
+// resize the canvas to fill browser window dynamically
+window.addEventListener('resize', () => {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+}, false);
+
+let points = [];
+for(let i=0; i<8; i++) {
+  let point = [w / 9 * (i + 1), h - Math.random() * h/4, 0.5 + Math.random()];
+  points.push(point);
+}
+let now = Date.now();
+
+function draw(){
+  let dt = Date.now() - now;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#272822';
+
+
+  /*ctx.beginPath();
+  ctx.moveTo(0, h);
+  for(let i=0; i<points.length; i++) {
+
+
+
+    
+  }
+  //ctx.lineTo(w, 3*h/4);
+  ctx.lineTo(w, h);
+  ctx.fill();*/
 }
 
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function(callback){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
 
+(function loop(){
+  draw();
+  requestAnimFrame(loop);
+  now = Date.now();
+})();
 
 // typewriter initialization
 let typewriterElem = [document.getElementById('title').childNodes[5], document.getElementById('title').childNodes[7]];
@@ -30,6 +77,7 @@ function animTypeWriter(blinkerIndex) {
 
       // finished all lines
       if(blinkerIndex == 2) {
+        typewriterElem[1].innerHTML = typewriterTemp[1];
         blinkCursor();
         return;
       }

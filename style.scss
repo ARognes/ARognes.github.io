@@ -71,19 +71,32 @@ html::-webkit-scrollbar { width: 0 !important }
 
 #bio {
   position: relative;
-  margin: 30vh 4%;
-  height: calc(40vh - 130px);
+  margin: 10vh 4%;
+  height: calc(80vh - 130px);
   color: #000;
-  
 
   button {
     width: 30%;
     max-width: 200px;
     height: 40px;
     margin: auto;
+    font-weight: bold;
     background-color: #999;
     border: none;
+    position: relative;
+    top: -16px;
+    opacity: 0;
+    animation: 1s rise;
+    animation-delay: 1.8s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
   }
+}
+
+#bioAnim {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .paragraphHead {
@@ -211,8 +224,8 @@ html::-webkit-scrollbar { width: 0 !important }
 
 #contact {
   position: relative;
-  height: 400px;
-  padding: 40px 4% 0 4%;
+  height: 500px;
+  padding: calc(100vh - 500px) 4% 0 4%;
   
   background-color: #272822;
 }
