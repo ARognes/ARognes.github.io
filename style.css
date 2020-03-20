@@ -82,6 +82,8 @@ html::-webkit-scrollbar {
   max-width: 200px;
   height: 40px;
   margin: auto;
+  background-color: #999;
+  border: none;
 }
 
 .paragraphHead {
@@ -238,5 +240,12 @@ html::-webkit-scrollbar {
   left: -90px;
   opacity: 0.5;
   filter: alpha(opacity=50);
+}
+
+#contact {
+  position: relative;
+  height: 400px;
+  padding: 40px 4% 0 4%;
+  background-color: #272822;
 }
 /*# sourceMappingURL=style.css.map */

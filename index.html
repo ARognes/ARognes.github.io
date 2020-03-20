@@ -45,7 +45,7 @@
       <div style="display: flex; justify-content: center;">
         <button type="button" onclick="document.getElementById('experience').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Experience</button>
         <button type="button" onclick="document.getElementById('showcase').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Projects</button>
-        <button type="button" onclick="document.getElementById('constact').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Contact</button>
+        <button type="button" onclick="document.getElementById('contact').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Contact</button>
       </div>
     </div>
 
@@ -124,6 +124,20 @@
 
         <!--<div style="position: fixed; top: 0; left: 20vw; right: 20vw; height: 20%; background: linear-gradient(0, #2220 0%, #222 40%, #222 100%);"></div>
         <div style="position: fixed; bottom: 0; left: 20vw; right: 20vw; height: 40%; background: linear-gradient(0, #222 0%, #222 40%, #222d 60%, #222b 80%, #2220 100%);"></div>-->
+    </div>
+
+    <div id="contact">
+      <p style="text-align: center; font-size: 30px; font-weight: bold; color: #fff; margin: 0;">Contact</p>
+      <p style="text-align: center; font-size: 18px; font-weight: bold; color: #aaf; margin: 0;">aurognes@gmail.com</p>
+
+      <div style="margin-top: 20px; display: flex; justify-content: center;">
+        <form action="alert("So many nullPointerExceptions were thrown that the narrator quit");">
+          <input type="text" style="width:90vw; font-size: 18px; border:none; padding-left: 4px;" placeholder="Name" required="true" minlength="3" maxlength="100" id="fname" name="fname"><br><br>
+          <input type="email" style="width:90vw; font-size: 18px; border:none; padding-left: 4px;" placeholder="Email" required="true" cols="50" id="femail" name="femail"><br><br>
+          <textarea style="width:90vw; font-size: 18px; border:none; padding-left: 4px; resize: none;" placeholder="Message" required="true" rows="6" id="ftext" name="ftext"></textarea><br><br>
+          <input type="submit" style="width: 100px; height: 40px; background-color: #f00; border:none; padding-left: 4px;" value="Submit">
+        </form>
+      </div>
     </div>
 
     <script src="index.js"></script>
