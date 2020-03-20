@@ -1,9 +1,16 @@
 /**
  * @author Austin Rognes
- * @date 2/4/2020
- */
+ * @startdate 2/4/2020
+*/
 
- // typewriter initialization
+function experience() {
+  return "I've";
+  console.log("arst");
+}
+
+
+
+// typewriter initialization
 let typewriterElem = [document.getElementById('title').childNodes[5], document.getElementById('title').childNodes[7]];
 let typewriterTemp = [];
 for(let i=0; i<typewriterElem.length; i++) {

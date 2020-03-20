@@ -27,7 +27,7 @@ html, body {
   border: 0;
   padding: 0;
   height: 2000px;
-  font: 16px/1.3 Donsolas, monaco, monospace;
+  font: 18px/1.3 Donsolas, monaco, monospace;
   background-color: #fff;
   color: #000;
 }
@@ -37,8 +37,6 @@ html::-webkit-scrollbar {
 }
 
 #title {
-  -webkit-filter: drop-shadow(0px 10px 6px #272822);
-          filter: drop-shadow(0px 10px 6px #272822);
   position: relative;
   top: 0;
   width: 100vw;
@@ -46,7 +44,7 @@ html::-webkit-scrollbar {
   overflow: hidden;
   color: white;
   font: 30px/1.6 Donsolas, monaco, monospace;
-  height: 100px;
+  height: 130px;
   margin-bottom: 10px;
   white-space: nowrap;
 }
@@ -64,13 +62,7 @@ html::-webkit-scrollbar {
   white-space: nowrap;
 }
 
-#foreground {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-#foregroundBody {
+.foreground {
   display: block;
   width: 100%;
   height: 100px;
@@ -78,11 +70,78 @@ html::-webkit-scrollbar {
           filter: drop-shadow(0px 10px 6px #272822);
 }
 
-.bodySection {
+#bio {
   position: relative;
   margin: 30vh 4%;
-  height: calc(40vh - 100px);
+  height: calc(40vh - 130px);
   color: #000;
+}
+
+#bio button {
+  width: 30%;
+  max-width: 200px;
+  height: 40px;
+  margin: auto;
+}
+
+.paragraphHead {
+  font: 30px/1.4 Donsolas, monaco, monospace;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0;
+  opacity: 0;
+  -webkit-animation: 1s rise;
+          animation: 1s rise;
+  -webkit-animation-delay: 1.4s;
+          animation-delay: 1.4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.paragraph {
+  position: relative;
+  text-indent: 20px;
+  text-align: center;
+  top: -16px;
+  opacity: 0;
+  -webkit-animation: 1s rise;
+          animation: 1s rise;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+
+@-webkit-keyframes rise {
+  from {
+    opacity: 0;
+    top: 8px;
+  }
+  to {
+    opacity: 1;
+    top: -16px;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    top: 8px;
+  }
+  to {
+    opacity: 1;
+    top: -16px;
+  }
+}
+
+#experience {
+  position: relative;
+  padding: 54px 4% 0 0;
+  height: 536px;
+  color: #000;
+  background-color: #272822;
 }
 
 #languages {
@@ -125,80 +184,47 @@ html::-webkit-scrollbar {
 #showcase {
   position: relative;
   width: 100%;
-  height: 100vh;
+  background-color: #272822;
 }
 
-.paragraphHead {
-  font: 24px/1.4 Donsolas, monaco, monospace;
-  font-weight: bold;
-  margin-top: 0;
-  opacity: 0;
-  -webkit-animation: 1s rise;
-          animation: 1s rise;
-  -webkit-animation-delay: 1.4s;
-          animation-delay: 1.4s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.paragraph {
-  position: relative;
-  text-indent: 20px;
-  top: -16px;
-  opacity: 0;
-  -webkit-animation: 1s rise;
-          animation: 1s rise;
-  -webkit-animation-delay: 1.6s;
-          animation-delay: 1.6s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-timing-function: ease;
-          animation-timing-function: ease;
-}
-
-@-webkit-keyframes rise {
-  from {
-    opacity: 0;
-    top: 8px;
-  }
-  to {
-    opacity: 1;
-    top: -16px;
-  }
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    top: 8px;
-  }
-  to {
-    opacity: 1;
-    top: -16px;
-  }
+#repositories {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 
 .repo {
-  background-color: #eee;
-  display: block;
-  position: relative;
-  padding: 10px;
-  left: 0;
-  right: 0;
-  height: 160px;
+  background-color: #fff;
+  width: 50vw;
+  height: 50vw;
 }
 
-.repo:nth-child(odd) {
-  background-color: #ddd;
+@media (min-width: 401px) {
+  .repo {
+    width: 33.3vw;
+    height: 33.3vw;
+  }
+}
+
+@media (min-width: 801px) {
+  .repo {
+    width: 25vw;
+    height: 25vw;
+  }
 }
 
 .showcaseGraphic {
-  border-radius: 8px;
-  position: relative;
-  height: 160px;
+  width: 100%;
+  height: 100%;
 }
 
 .showcaseLink {
+  visibility: hidden;
   width: 32px;
   height: 32px;
   margin: 2px;
@@ -212,44 +238,5 @@ html::-webkit-scrollbar {
   left: -90px;
   opacity: 0.5;
   filter: alpha(opacity=50);
-}
-
-.showcaseDesc {
-  position: absolute;
-  top: 0;
-  left: 175px;
-  right: 5px;
-  height: 80%;
-  font-size: 14px;
-  white-space: normal;
-}
-
-.showcaseTags {
-  position: absolute;
-  bottom: 5.5%;
-  right: 2%;
-  width: 100%;
-}
-
-.useTag {
-  background-color: #090;
-  background-position: center;
-  border-radius: 8px;
-  padding: 0 8px 0 8px;
-  margin: 0 4px 0 0;
-  font-size: 12px;
-  float: left;
-  position: relative;
-  left: 190px;
-}
-
-.dateTag {
-  background-color: #099;
-  border-radius: 8px;
-  background-position: center;
-  padding: 0 8px 0 8px;
-  margin: 0 4px 0 0;
-  font-size: 12px;
-  float: right;
 }
 /*# sourceMappingURL=style.css.map */
