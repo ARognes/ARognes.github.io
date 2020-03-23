@@ -16,17 +16,32 @@ window.addEventListener('resize', () => {
     h = canvas.height = window.innerHeight;
 }, false);
 
-let points = [];
-for(let i=0; i<8; i++) {
-  let point = [w / 9 * (i + 1), h - Math.random() * h/4, 0.5 + Math.random()];
-  points.push(point);
-}
 let now = Date.now();
+
+let bubble = {left: 220, right: 220, height: 140, scale: 0};
 
 function draw(){
   let dt = Date.now() - now;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = '#272822';
+
+  if(bubble.scale < 1) bubble.scale += dt/500 * (1 - bubble.scale);
+  bubble.left = 220 * bubble.scale + Math.sin(now/100);
+  bubble.right = 220 * bubble.scale + Math.sin(now/100);
+  bubble.height = 140 * bubble.scale + Math.cos(now/100);
+
+  ctx.beginPath();
+  ctx.bezierCurveTo(w/2 - bubble.left, 0, w/2 - 7 * bubble.left/8, bubble.height, w/2, bubble.height);
+  ctx.bezierCurveTo(w/2, bubble.height, w/2 + 7 * bubble.right/8, bubble.height, w/2 + bubble.right, 0);
+  ctx.fill();
+
+  ctx.rect(0, h-bubble.height/2+1, w, bubble.height/2+1);
+  ctx.fill();
+  ctx.fillStyle = '#fff';
+  ctx.beginPath();
+  ctx.bezierCurveTo(0, h - bubble.height/2, w/4, h, w/2, h);
+  ctx.bezierCurveTo(w/2, h, 3 * w/4 , h, w, h - bubble.height/2);
+  ctx.fill();
 
 
   /*ctx.beginPath();
@@ -65,9 +80,9 @@ for(let i=0; i<typewriterElem.length; i++) {
   typewriterElem[i].innerHTML = null;
 }
 
-window.addEventListener('load', function () {
-  animTypeWriter(0);
-});
+setTimeout(() => {animTypeWriter(0)}, 400);
+
+
 
 function animTypeWriter(blinkerIndex) {
 
@@ -88,17 +103,14 @@ function animTypeWriter(blinkerIndex) {
     // treat html tag as a single character (expecting <a></a>)
     if(typewriterTemp[blinkerIndex][next] === '<') {
       // find 2 greater-than signs
-      next++;
       while(typewriterTemp[blinkerIndex][next] !== '>') next++;
       do next++;  // a rare 'do while' loop grazing in its natural habitat
       while(typewriterTemp[blinkerIndex][next] !== '>');
-      next++;
     } else while(typewriterTemp[blinkerIndex][next + 1] === " ") next++;
-
     
     typewriterElem[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex].substr(0, next);
     if(typewriterElem[blinkerIndex].innerHTML.length < typewriterTemp[blinkerIndex].length) typewriterElem[blinkerIndex].innerHTML += "|";
-  setTimeout(() => {animTypeWriter(blinkerIndex)}, 50);
+  setTimeout(() => {animTypeWriter(blinkerIndex)}, 40);
 }
 
 function blinkCursor() {
