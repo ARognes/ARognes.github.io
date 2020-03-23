@@ -120,12 +120,12 @@ let languages = document.getElementById('languages');
 
 var observer = new IntersectionObserver(function(entries) {
 	if(entries[0].intersectionRatio === 0) {
-    languages.classList.add('languages-sticky');
+    languages.classList.add('languagesSticky');
   } else if(entries[0].intersectionRatio === 1)
-    languages.classList.remove('languages-sticky');
+    languages.classList.remove('languagesSticky');
 }, { threshold: [0,1] });
 
-observer.observe(document.querySelector("#languages-top"));
+observer.observe(document.querySelector("#languagesTop"));
 
 function shakeLinks(elem) {
   shakeLinksTime(elem.parentElement.children[1], elem.parentElement.children[2], 0);
