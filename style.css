@@ -71,8 +71,7 @@ html::-webkit-scrollbar {
 
 #bio {
   position: relative;
-  margin: 10vh 4%;
-  height: calc(80vh - 130px);
+  height: calc(100vh - 140px);
   color: #000;
 }
 
