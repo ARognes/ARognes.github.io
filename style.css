@@ -115,7 +115,6 @@ html::-webkit-scrollbar {
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
   text-shadow: 4px 4px #ddd;
-  font-family: 'Days One', sans-serif;
 }
 
 .paragraph {
