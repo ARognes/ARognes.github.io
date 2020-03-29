@@ -4,8 +4,7 @@
 */
 
 //
-document.getElementById("bio").style.height = window.innerHeight * 0.8 - 130 + "px";
-document.getElementById("bio").innerHTML = window.innerHeight + ", " + self.innerHeight + ", " + top.innerHeight;
+document.getElementById("bio").style.height = window.innerHeight - document.clientHeight * 0.2 - 130 + "px";
 
 // check if viewing on mobile device
 var isMobile = false;
