@@ -42,9 +42,10 @@ function draw(){
   
 
   if(bubble.scale < 1) bubble.scale += dt/500 * (1 - bubble.scale);
-  bubble.left = 220 * bubble.scale + Math.sin(now/100);
-  bubble.right = 220 * bubble.scale + Math.sin(now/100);
-  bubble.height = 140 * bubble.scale + Math.cos(now/100);
+  bubble.left = Math.min(220 * bubble.scale + Math.sin(now/100), 221);
+  bubble.right = Math.min(220 * bubble.scale + Math.sin(now/100), 221);
+  bubble.height = Math.min(140 * bubble.scale + Math.cos(now/100), 141);
+
 
   // title bubble
   ctx.fillStyle = '#272822';
