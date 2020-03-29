@@ -73,7 +73,7 @@ html::-webkit-scrollbar { width: 0 !important }
 #bio {
   position: relative;
   margin: 10vh 4%;
-  height: calc(80vh - 130px);
+  height: calc(80vh - 130px); // js recalc for mobile browser bar height
   color: #000;
 
   button {

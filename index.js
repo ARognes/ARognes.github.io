@@ -3,6 +3,10 @@
  * @startdate 2/4/2020
 */
 
+//
+document.getElementById("bio").style.height = window.innerHeight * 0.8 - 130 + "px";
+document.getElementById("bio").innerHTML = window.innerHeight + ", " + self.innerHeight + ", " + top.innerHeight;
+
 // check if viewing on mobile device
 var isMobile = false;
 
@@ -56,9 +60,6 @@ function draw(){
   ctx.beginPath();
   ctx.bezierCurveTo(0, h - bubble.height/2 * canvas.width / 800, w/4, h, w/2, h);
   ctx.bezierCurveTo(w/2, h, 3 * w/4 , h, w, h - bubble.height/2 * canvas.width / 800);
-
-  //ctx.bezierCurveTo(0, h - bubble.height/2, w/4, h, w/2, h);
-  //ctx.bezierCurveTo(w/2, h, 3 * w/4 , h, w, h - bubble.height/2);
   ctx.fill();
 
 
