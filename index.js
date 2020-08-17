@@ -37,15 +37,12 @@ let now = Date.now();
 let bubble = {left: 220, right: 220, height: 140, scale: 0};
 
 function draw(){
-  let dt = Date.now() - now;
+  let deltaTime = Date.now() - now;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
-
-  if(bubble.scale < 1) bubble.scale += dt/500 * (1 - bubble.scale);
-  bubble.left = Math.min(220 * bubble.scale + Math.sin(now/100), 221);
-  bubble.right = Math.min(220 * bubble.scale + Math.sin(now/100), 221);
+  if (bubble.scale < 1) bubble.scale += deltaTime / 500 * (1.02 - bubble.scale);
+  bubble.left = bubble.right = Math.min(220 * bubble.scale + Math.sin(now/100), 221);
   bubble.height = Math.min(140 * bubble.scale + Math.cos(now/100), 141);
-
 
   // title bubble
   ctx.fillStyle = '#272822';
@@ -62,19 +59,6 @@ function draw(){
   ctx.bezierCurveTo(0, h - bubble.height/2 * canvas.width / 800, w/4, h, w/2, h);
   ctx.bezierCurveTo(w/2, h, 3 * w/4 , h, w, h - bubble.height/2 * canvas.width / 800);
   ctx.fill();
-
-
-  /*ctx.beginPath();
-  ctx.moveTo(0, h);
-  for(let i=0; i<points.length; i++) {
-
-
-
-    
-  }
-  //ctx.lineTo(w, 3*h/4);
-  ctx.lineTo(w, h);
-  ctx.fill();*/
 }
 
 window.requestAnimFrame = (function(){
@@ -88,7 +72,7 @@ window.requestAnimFrame = (function(){
 
 (function loop(){
   draw();
-  requestAnimFrame(loop);
+  if (bubble.scale < 1) requestAnimFrame(loop);
   now = Date.now();
 })();
 
@@ -101,8 +85,6 @@ for(let i=0; i<typewriterElem.length; i++) {
 }
 
 setTimeout(() => {animTypeWriter(0)}, 400);
-
-
 
 function animTypeWriter(blinkerIndex) {
 
@@ -147,9 +129,10 @@ function blinkCursor() {
 }
 
 let languages = document.getElementById('languages');
-// also color the languageIcons here
+// TODO: also color the languageIcons here
 // set repos to visible through transition
 
+// Repository language bar stick to top / move freely toggle
 var observer = new IntersectionObserver(function(entries) {
 	if(entries[0].intersectionRatio === 0) {
     languages.classList.add('languagesSticky');
@@ -158,6 +141,70 @@ var observer = new IntersectionObserver(function(entries) {
 }, { threshold: [0,1] });
 
 observer.observe(document.querySelector("#languagesTop"));
+
+// Retrieved from: https://stackoverflow.com/questions/12460378/how-to-get-json-from-url-in-javascript
+var getJSON = function(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.responseType = 'json';
+  xhr.onload = function() {
+    var status = xhr.status;
+    if (status === 200) {
+      callback(null, xhr.response);
+    } else {
+      callback(status, xhr.response);
+    }
+  };
+  xhr.send();
+};
+
+// Parse information from all of my repositories
+var repos = [];
+var repos_container = document.getElementById('repositories__container');
+getJSON('https://api.github.com/users/ARognes/repos', function(err, data) {
+  if (err !== null) tooManyRequests(err);
+  else {
+    for (repo of data) {
+      var condensed_repo = {name: repo['name'], desc: repo['description'], url: repo['html_url'], created: repo['created_at'], updated: repo['updated_at'], stars: repo['stargazers_count'], content_url: repo['url'] + '/content/', langs_url: repo['languages_url']};
+      repos.push(condensed_repo);
+    }
+    getRepoLinks();
+  }
+});
+
+// Get cover image/gif
+function getRepoLinks() {
+  for (repo of repos) {
+    console.log(repo);
+    getJSON(repo.content_url + '/contents/', function(err, data) {
+      if (err !== null) tooManyRequests(err);
+      else for (file of data) {
+        if (file['name'].substr(0, 8) === 'showcase') {
+          repo.showcase = file['download_url'];
+
+          // Initially load selected repos
+          console.log(repo);
+          //if (condensed_repo.name === 'TileGrid' || condensed_repo.name === 'RognesCorp') {
+            repos_container.innerHTML += '<div class=\'repo\'><img src=' + repo.showcase + ' align=\'middle\' class=\'showcaseGraphic\' onclick=\'shakeLinks(this)\'>'
+            + '<a href=\'RognesCorp\' target=\'_blank\' class=\'showcaseLink\' style=\'background-image: url(\'https://cdn1.iconfinder.com/data/icons/materia-video-games/24/003_003_eye_watch_view_views-512.png\');\'></a>'
+            + '<a href=' + repo.url + ' target=\'_blank\' class=\'showcaseLink\' style=\'background-image: url(\'https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png\');\'></a></div>';
+          //}
+        }
+      }
+    });
+
+    // Get languages used
+    getJSON(repo.langs_url, function(err, data) {
+      if (err !== null) tooManyRequests(err);
+      else repo.langs = data;
+    });
+  }
+}
+
+// Too many people accessing my github within the hour
+function tooManyRequests(err) {
+  console.error("Too many requests to github: " + err);
+}
 
 function shakeLinks(elem) {
   shakeLinksTime(elem.parentElement.children[1], elem.parentElement.children[2], 0);

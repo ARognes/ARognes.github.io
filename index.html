@@ -1,143 +1,152 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Austin Rognes</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Austin Rognes's superb portfolio.">
-    <meta name="keywords" content="">
-    <meta name="author" content="Austin Rognes">
-    <link rel="icon" href="https://avatars3.githubusercontent.com/u/24531457?s=460&v=4">
-    <link href="style.css" rel="stylesheet">
 
-    <!-- not all of these are currently used! -->
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Days+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Marmelad&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <canvas width="100" height="100" id="bioAnim"></canvas>
+<head>
+  <title>Austin Rognes</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Austin Rognes's superb portfolio.">
+  <meta name="keywords" content="">
+  <meta name="author" content="Austin Rognes">
+  <link rel="icon" href="https://avatars3.githubusercontent.com/u/24531457?s=460&v=4">
+  <link href="style.css" rel="stylesheet">
 
-    <!-- title bubble -->
-    <div id="title">
-        <svg class="foreground"></svg>
+  <!-- not all of these are currently used! -->
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Days+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Marmelad&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas width="100" height="100" id="bioAnim"></canvas>
 
-      <!--<div style="position: absolute; top: 0; left: 0; width: 24px; height: 100px; background-color: #000;">
-        <p style="position: absolute; top: -14px; left: 6px; font: 20px/2.4 Consolas, sans-serif; color: #999;">1<br>2</p>
-      </div>-->
+  <!-- title bubble -->
+  <div id="title">
+      <svg class="foreground"></svg>
 
-      <p style="position: absolute; top: -28px; width: 100%;"><i style="font-size: 20px; color: #66d9ef">let </i>Austin_Rognes<span style="font-size:20px; color: #f92672"> =</span></p>
-      <p style="position: absolute; top: 16px; width: 100%;">{
-      <a href="https://github.com/ARognes" target="_blank" style="background-image: url('./images/github_icon.png');"></a>, 
-      <a href="https://www.linkedin.com/in/austin-rognes-7858aa171" target="_blank" style="background-image: url('./images/linkedin_icon.png');"></a>, 
-      <a href="https://docs.google.com/document/d/1pWZyMr6CMDhBaMISAWG7zYhaK6WMKxRhKsb9JU1hY5s/edit?usp=sharing" target="_blank" style="background-image: url('./images/resume_icon.png');"></a>};</p>
+    <!--<div style="position: absolute; top: 0; left: 0; width: 24px; height: 100px; background-color: #000;">
+      <p style="position: absolute; top: -14px; left: 6px; font: 20px/2.4 Consolas, sans-serif; color: #999;">1<br>2</p>
+    </div>-->
+
+    <p style="position: absolute; top: -28px; width: 100%;"><i style="font-size: 20px; color: #66d9ef">let </i>Austin_Rognes<span style="font-size:20px; color: #f92672"> =</span></p>
+    <p style="position: absolute; top: 16px; width: 100%;">{
+    <a href="https://github.com/ARognes" target="_blank" style="background-image: url('./images/github_icon.png');"></a>, 
+    <a href="https://www.linkedin.com/in/austin-rognes-7858aa171" target="_blank" style="background-image: url('./images/linkedin_icon.png');"></a>, 
+    <a href="https://docs.google.com/document/d/1pWZyMr6CMDhBaMISAWG7zYhaK6WMKxRhKsb9JU1hY5s/edit?usp=sharing" target="_blank" style="background-image: url('./images/resume_icon.png');"></a>};</p>
+  </div>
+
+  <div id="bio">
+    <p class="paragraphHead">Software developer</p>
+    <p class="paragraph">[Unfinished] I'm always learning new languages, frameworks, libraries, etc. to create interesting new projects. Currently looking for an internship!</p>
+    <div style="display: flex; justify-content: center;">
+      <button type="button" onclick="document.getElementById('experience').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Experience</button>
+      <button type="button" onclick="document.getElementById('showcase').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Projects</button>
+      <button type="button" onclick="document.getElementById('contact').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Contact</button>
     </div>
+  </div>
 
-    <div id="bio">
-      <p class="paragraphHead">Web and mobile app developer</p>
-      <p class="paragraph">I balance optimization, scaleability, and creativity with each project I work on. I'm always on the lookout for an internship!</p>
-      <div style="display: flex; justify-content: center;">
-        <button type="button" onclick="document.getElementById('experience').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Experience</button>
-        <button type="button" onclick="document.getElementById('showcase').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Projects</button>
-        <button type="button" onclick="document.getElementById('contact').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Contact</button>
-      </div>
-    </div>
+  <div id="experience">
+    <!--<div style="position: absolute; top: 0; left: 0; width: 40px; height: 600px; background-color: #000;">
+      <p style="position: absolute; top: -14px; left: 0; font: 20px/1.4 Consolas, sans-serif; color: #999;">'12<br>'13<br>'14<br>'15<br>'16<br>'17<br>'18<br>'19<br>'20<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--</p>
+    </div>-->
+    
+    <!--<p style="text-align: left; font-size: 18px; line-height: 1.6; font-weight: bold; color: #999; margin: -20px 0 0 50px;" >/*</p>-->
+    <p style="text-align: center; font-size: 30px; font-weight: bold; color: #999; margin: -8px 0 0 50px;">Experience</p>
+    <p style="text-align: center; font-size: 18px; line-height: 1.6; font-weight: bold; color: #999; margin: -4px 0 0 50px;" >I've made android and pc games, websites, and web-apps for visualizing complex algorithms because it's my passion. I'm working on a degree in Software Engineering at Iowa State Univerity. I love doing time hack challenges with <a href="https://mlh.io/">MLH</a>, <a href="https://ldjam.com/">Ludum Dare</a>, and <a href="https://battlecode.org/">MIT Battlecode</a>. I usually make some random project when I learn a new language.</p>
+    <!--<p style="text-align: left; font-size: 18px; line-height: 1.6; font-weight: bold; color: #999; margin: 0 0 0 50px;" >*/</p>-->
+  </div>
 
-    <div id="experience">
-      <!--<div style="position: absolute; top: 0; left: 0; width: 40px; height: 600px; background-color: #000;">
-        <p style="position: absolute; top: -14px; left: 0; font: 20px/1.4 Consolas, sans-serif; color: #999;">'12<br>'13<br>'14<br>'15<br>'16<br>'17<br>'18<br>'19<br>'20<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--<br>'--</p>
-      </div>-->
+  <!--As of February 2020, I am a Sophomore in my 4th semester at Iowa State University.
+      Since 2012, I've been exploring different forms of software development.-->
+  <!--In 2012 I learned to program through <a href="www.stencyl.com">Stencyl</a> via drag and drop. I published the final version of my first game <a href="http://www.stencyl.com/game/play/22567">Floaty Jump</a> Sep. 28, 2013.-->
       
-      <!--<p style="text-align: left; font-size: 18px; line-height: 1.6; font-weight: bold; color: #999; margin: -20px 0 0 50px;" >/*</p>-->
-      <p style="text-align: center; font-size: 30px; font-weight: bold; color: #999; margin: -8px 0 0 50px;">Experience</p>
-      <p style="text-align: center; font-size: 18px; line-height: 1.6; font-weight: bold; color: #999; margin: -4px 0 0 50px;" >I've made android and pc games, websites, and web-apps for visualizing complex algorithms because it's my passion. I'm working on a degree in Software Engineering at Iowa State Univerity. I love doing time hack challenges with <a href="https://mlh.io/">MLH</a>, <a href="https://ldjam.com/">Ludum Dare</a>, and <a href="https://battlecode.org/">MIT Battlecode</a>. I've also created way too many odd programs...</p>
-      <!--<p style="text-align: left; font-size: 18px; line-height: 1.6; font-weight: bold; color: #999; margin: 0 0 0 50px;" >*/</p>-->
-    </div>
 
-    <!--As of February 2020, I am a Sophomore in my 4th semester at Iowa State University.
-        Since 2012, I've been exploring different forms of software development.-->
-
-    <!--In 2012 I learned to program through <a href="www.stencyl.com">Stencyl</a> via drag and drop. I published the final version of my first game <a href="http://www.stencyl.com/game/play/22567">Floaty Jump</a> Sep. 28, 2013.-->
-      <div id="showcase"></div>
-        <div id="repositories">
-          <div id="languagesTop"></div>
-          <div id="languages">
-            <img src="./images/html.png" alt="HTML" class="languageIcon">
-            <img src="./images/scss.png" alt="SCSS" class="languageIcon">
-            <img src="./images/javascript.png" alt="Javascript" class="languageIcon">
-            <img src="./images/node.png" alt="Node.js" class="languageIcon">
-            <img src="./images/java.png" alt="Java" class="languageIcon">
-            <img src="./images/unity.png" alt="Unity3D" class="languageIcon">
-            <img src="./images/c.png" alt="C" class="languageIcon">
-            <img src="./images/python.png" alt="Python" class="languageIcon">
-          </div>
-
-          <div style="height:100vh"></div>
-
-          <!--TileGrid-->
-          <div class="repo">
-            <img src="./images/TileGridDemo.png" alt="TileGrid Display" align="middle" class="showcaseGraphic" onclick="shakeLinks(this)">
-
-            <a href="TileGrid" target="_blank" class="showcaseLink" style="background-image: url('https://cdn1.iconfinder.com/data/icons/materia-video-games/24/003_003_eye_watch_view_views-512.png');"></a>
-            <a href="https://github.com/ARognes/TileGrid" target="_blank" class="showcaseLink" style="background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
-          </div>
-
-          <!--Battlecode-->
-          <div class="repo">
-            
-            <img src="https://raw.githubusercontent.com/ARognes/Battlecode/master/BestCase.gif"
-            alt="BattleCode Display" align="middle" class="showcaseGraphic" onclick="shakeLinks(this)">
-
-            <div style="width: 32px; height: 32px; margin: 2px; position: relative; display: inline-block; left:-80px;"></div>
-            <a href="https://github.com/ARognes/BattleCode" target="_blank" class="showcaseLink" style=" background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
-          </div>
-
-          <!--RognesCorp-->
-          <div class="repo">
-            <img src="./images/RognesCorpDemo.png"
-            alt="RognesCorp Display" align="middle" class="showcaseGraphic" onclick="shakeLinks(this)">
-
-            <a href="RognesCorp" target="_blank" class="showcaseLink" style="background-image: url('https://cdn1.iconfinder.com/data/icons/materia-video-games/24/003_003_eye_watch_view_views-512.png');"></a>
-            <a href="https://github.com/ARognes/RognesCorp" target="_blank" class="showcaseLink" style="background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
-
-          </div>
-
-          <!--IowaStateAI-->
-          <div class="repo">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEXl5eX39/f09PTp6ens7Ozn5+fy8vLv7+9RgCZqAAADm0lEQVR4nO2d7XqjIBBGWz/v/443aXefqAEEHd6Zbs/5neCcgICDkI8PAAAAAAAAAAAAAAAAAAAAAAAAAAAA+K2M07IM/izrNHfxW4fPOCyjud8Yye/Jaiw4eQu9M/zvgg9Fw7tx9JZJs9gZeqvkmKwEQ7bRL6wMvT3yGFVi0LvwiVF/um6LDMBW0aY7XV4Frn2mS22M5oabH82kvNtsej6bydvL0HAAusPYz9B2onQZDJvBUA6GzWD4ZFZOBdSG87Q8ZlLPBJF97iSN1nCfvzF7YCuiNHzLTw0KR6Fh6rnKOgeWQGeYfnDsrygzzD0Zd1dUGc4Zwf79jcqwkATvPDiKDEsJuM7PkSLD4jpG30rUGJYTcH07G43hmvD6TH2wAxrDk8U2kwvn0BiWBdtvxKEhVolhfjC8dOV5aPlKCMO2QX8emqL9eYbz0BZuiPuw5crz0PitEH1pS0+zKaou4AjjYcNoMe9+q6qINYbldeH6iel8aAw1IWsMj5G1x5kppuKropl3sZleKLshaJFhabyoHSvSDeE0atUTcP5OrL0Lcy39LGxZnmZJBPf1qcqhIn8rn8Sty7VdrIK/lPqqchHCfGmyFmsver0zVua83zvU+030PHTpusUhrV+d1D8TLMYuXnsaX+8OL9VvJ58LloLXrx+O4/RgbJhtV71wnI0+/hpwTQ2Wwg9vWCuYjT+6Yb1gTiC4YYtgxiC4YeOuhpRCaMO2Gsw4RDZsF0xJBDa8IpiwCGx4cWfRUcPZMP921LUaTHj4Gs5D7uniuuBRxNXwqZFWvCN4MPE0/NZIKd4T3Kt4Gg7Zz93evrhx8TN81dOxFu/W4F7GzXCrsVe0ENy8/eBluNfYKpoIbtLMToZHjY2izRZid8M3jX8ftqlBd8OUxnctWgk6G6Y1nopmgr6GOY2Hot02flfDrMZgJ+hpaNcQgxqKBP0MVYJuhjJBN0OZoJOhrgadDJWCLoZSQRdDqaCDobYGHQzVgnJDuaDcUC6oNjx7zxtDDDHEEEMMMcQQQwwxxDCooXqVe5IT4E0FGRg2g6EcDJv5TYacQSvC3HCxLvAu5gFtt1Gu+rnMG9t0u82BVHGP1TfbTOftkcfqxK3ctnR/rE5NC/vXAXaj18lRLW4YHnynXy2swfIESv2KbwW2R2zO8Rqq+exjilWNS4/DJ6cwo8bQ72DteQxAhP9JAQAAAAAAAAAAAAAAAAAAAAAAAAAACMsfYxg6Q+/G54IAAAAASUVORK5CYII="
-            alt="IowaStateAI Display" align="middle" class="showcaseGraphic" onclick="shakeLinks(this)">
-
-
-            <a href="IowaStateAI" target="_blank" class="showcaseLink" style="background-image: url('https://cdn1.iconfinder.com/data/icons/materia-video-games/24/003_003_eye_watch_view_views-512.png');"></a>
-            <a href="https://github.com/ARognes/IowaStateAI" target="_blank" class="showcaseLink" style="background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
-
-          </div>
-
-          
-        </div>
-
-        <!--<div style="position: fixed; top: 0; left: 20vw; right: 20vw; height: 20%; background: linear-gradient(0, #2220 0%, #222 40%, #222 100%);"></div>
-        <div style="position: fixed; bottom: 0; left: 20vw; right: 20vw; height: 40%; background: linear-gradient(0, #222 0%, #222 40%, #222d 60%, #222b 80%, #2220 100%);"></div>-->
-    </div>
-
-    <div id="contact">
-      <p style="text-align: center; font-size: 30px; font-weight: bold; color: #fff; margin: 0;">Contact</p>
-      <p style="text-align: center; font-size: 18px; font-weight: bold; color: #aaf; margin: 0;">aurognes@gmail.com</p>
-
-      <div style="margin-top: 20px; display: flex; justify-content: center;">
-        <form action="alert("So many nullPointerExceptions were thrown that the narrator quit");">
-          <input type="text" class="textbox" placeholder="Name" required="true" minlength="3" maxlength="100" id="fname" name="fname"><br>
-          <input type="email" class="textbox" placeholder="Email" required="true" cols="50" id="femail" name="femail"><br>
-          <textarea class="textbox" style="resize: none;" placeholder="Message" required="true" rows="6" id="ftext" name="ftext"></textarea><br>
-          <input type="submit" style="width: 100px; height: 40px; background-color: #f00; border:none; padding-left: 4px; margin-top: 20px;" value="Submit">
-        </form>
+  <!-- Showcase holds all github repositories that I have. I want to automate this more so that I don't have to redesign this but first I want to make it look suitable
+       TODO: Pipe in tagged projects from my Github and display their information automatically search, filter, display link/look, and add some nice helper text between the toolbar and repository images-->
+  <div id="showcase">
+    <div id="repositories">
+      <div id="languagesTop"></div>
+      <div id="languages">
+        <img src="./images/html.png" alt="HTML" class="languageIcon">
+        <img src="./images/scss.png" alt="SCSS" class="languageIcon">
+        <img src="./images/javascript.png" alt="Javascript" class="languageIcon">
+        <img src="./images/node.png" alt="Node.js" class="languageIcon">
+        <img src="./images/java.png" alt="Java" class="languageIcon">
+        <img src="./images/unity.png" alt="Unity3D" class="languageIcon">
+        <img src="./images/c.png" alt="C" class="languageIcon">
+        <img src="./images/python.png" alt="Python" class="languageIcon">
       </div>
+
+      <div style="height:100vh"></div>
+
+      <div id="repositories__container">
+
+
+      </div>
+
+      <!--TileGrid
+      <div class="repo">
+        <img src="./images/TileGridDemo.png" alt="TileGrid Display" align="middle" class="showcaseGraphic" onclick="shakeLinks(this)">
+
+        <a href="TileGrid" target="_blank" class="showcaseLink" style="background-image: url('https://cdn1.iconfinder.com/data/icons/materia-video-games/24/003_003_eye_watch_view_views-512.png');"></a>
+        <a href="https://github.com/ARognes/TileGrid" target="_blank" class="showcaseLink" style="background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
+      </div>
+
+      <!--Battlecode
+      <div class="repo">
+        
+        <img src="https://raw.githubusercontent.com/ARognes/Battlecode/master/BestCase.gif"
+        alt="BattleCode Display" align="middle" class="showcaseGraphic" onclick="shakeLinks(this)">
+
+        <div style="width: 32px; height: 32px; margin: 2px; position: relative; display: inline-block; left:-80px;"></div>
+        <a href="https://github.com/ARognes/BattleCode" target="_blank" class="showcaseLink" style=" background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
+      </div>
+
+      <!--RognesCorp
+      <div class="repo">
+        <img src="./images/RognesCorpDemo.png"
+        alt="RognesCorp Display" align="middle" class="showcaseGraphic" onclick="shakeLinks(this)">
+
+        <a href="RognesCorp" target="_blank" class="showcaseLink" style="background-image: url('https://cdn1.iconfinder.com/data/icons/materia-video-games/24/003_003_eye_watch_view_views-512.png');"></a>
+        <a href="https://github.com/ARognes/RognesCorp" target="_blank" class="showcaseLink" style="background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
+
+      </div>
+
+      <!--IowaStateAI
+      <div class="repo">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAGFBMVEXl5eX39/f09PTp6ens7Ozn5+fy8vLv7+9RgCZqAAADm0lEQVR4nO2d7XqjIBBGWz/v/443aXefqAEEHd6Zbs/5neCcgICDkI8PAAAAAAAAAAAAAAAAAAAAAAAAAAAA+K2M07IM/izrNHfxW4fPOCyjud8Yye/Jaiw4eQu9M/zvgg9Fw7tx9JZJs9gZeqvkmKwEQ7bRL6wMvT3yGFVi0LvwiVF/um6LDMBW0aY7XV4Frn2mS22M5oabH82kvNtsej6bydvL0HAAusPYz9B2onQZDJvBUA6GzWD4ZFZOBdSG87Q8ZlLPBJF97iSN1nCfvzF7YCuiNHzLTw0KR6Fh6rnKOgeWQGeYfnDsrygzzD0Zd1dUGc4Zwf79jcqwkATvPDiKDEsJuM7PkSLD4jpG30rUGJYTcH07G43hmvD6TH2wAxrDk8U2kwvn0BiWBdtvxKEhVolhfjC8dOV5aPlKCMO2QX8emqL9eYbz0BZuiPuw5crz0PitEH1pS0+zKaou4AjjYcNoMe9+q6qINYbldeH6iel8aAw1IWsMj5G1x5kppuKropl3sZleKLshaJFhabyoHSvSDeE0atUTcP5OrL0Lcy39LGxZnmZJBPf1qcqhIn8rn8Sty7VdrIK/lPqqchHCfGmyFmsver0zVua83zvU+030PHTpusUhrV+d1D8TLMYuXnsaX+8OL9VvJ58LloLXrx+O4/RgbJhtV71wnI0+/hpwTQ2Wwg9vWCuYjT+6Yb1gTiC4YYtgxiC4YeOuhpRCaMO2Gsw4RDZsF0xJBDa8IpiwCGx4cWfRUcPZMP921LUaTHj4Gs5D7uniuuBRxNXwqZFWvCN4MPE0/NZIKd4T3Kt4Gg7Zz93evrhx8TN81dOxFu/W4F7GzXCrsVe0ENy8/eBluNfYKpoIbtLMToZHjY2izRZid8M3jX8ftqlBd8OUxnctWgk6G6Y1nopmgr6GOY2Hot02flfDrMZgJ+hpaNcQgxqKBP0MVYJuhjJBN0OZoJOhrgadDJWCLoZSQRdDqaCDobYGHQzVgnJDuaDcUC6oNjx7zxtDDDHEEEMMMcQQQwwxxDCooXqVe5IT4E0FGRg2g6EcDJv5TYacQSvC3HCxLvAu5gFtt1Gu+rnMG9t0u82BVHGP1TfbTOftkcfqxK3ctnR/rE5NC/vXAXaj18lRLW4YHnynXy2swfIESv2KbwW2R2zO8Rqq+exjilWNS4/DJ6cwo8bQ72DteQxAhP9JAQAAAAAAAAAAAAAAAAAAAAAAAAAACMsfYxg6Q+/G54IAAAAASUVORK5CYII="
+        alt="IowaStateAI Display" align="middle" class="showcaseGraphic" onclick="shakeLinks(this)">
+
+        <a href="IowaStateAI" target="_blank" class="showcaseLink" style="background-image: url('https://cdn1.iconfinder.com/data/icons/materia-video-games/24/003_003_eye_watch_view_views-512.png');"></a>
+        <a href="https://github.com/ARognes/IowaStateAI" target="_blank" class="showcaseLink" style="background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png');"></a>
+
+      </div>-->
+
+      
     </div>
 
-    <script src="index.js"></script>
-    <noscript>Your browser does not support JavaScript!</noscript>
-  </body>
+      <!--<div style="position: fixed; top: 0; left: 20vw; right: 20vw; height: 20%; background: linear-gradient(0, #2220 0%, #222 40%, #222 100%);"></div>
+      <div style="position: fixed; bottom: 0; left: 20vw; right: 20vw; height: 40%; background: linear-gradient(0, #222 0%, #222 40%, #222d 60%, #222b 80%, #2220 100%);"></div>-->
+  </div>
+
+  <!-- Send an email to me: Name, email, message-->
+  <div id="contact">
+    <p style="text-align: center; font-size: 30px; font-weight: bold; color: #fff; margin: 0;">Contact</p>
+    <p style="text-align: center; font-size: 18px; font-weight: bold; color: #aaf; margin: 0;">aurognes@gmail.com</p>
+
+    <div style="margin-top: 20px; display: flex; justify-content: center;">
+      <form action="mailto:austinrognes@yahoo.com" method=”POST” enctype=”multipart/form-data”>
+        <input type="text" class="textbox" placeholder="Name" required="true" minlength="3" maxlength="100" id="fname" name="fname"><br>
+        <input type="email" class="textbox" placeholder="Email" required="true" cols="50" id="femail" name="femail"><br>
+        <textarea class="textbox" style="resize: none;" placeholder="Message" required="true" rows="6" id="ftext" name="ftext"></textarea><br>
+        <input type="submit" style="width: 100px; height: 40px; background-color: #f00; border:none; padding-left: 4px; margin-top: 20px;" value="Submit">
+      </form>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+  <noscript>Your browser does not support JavaScript!</noscript>
+</body>
 </html>
