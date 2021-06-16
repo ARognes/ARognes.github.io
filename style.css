@@ -1,3 +1,7 @@
+/**
+ *  @author Austin Rognes
+ *
+ */
 @font-face {
   font-family: Donsolas;
   src: url(fonts/consola.ttf);
@@ -24,8 +28,9 @@
 
 html, body {
   margin: 0;
-  border: 0;
   padding: 0;
+  border: 0;
+  width: 100vw;
   height: 2000px;
   font: 24px/1.3 Donsolas, monaco, monospace;
   background-color: #fff;
@@ -62,29 +67,25 @@ html::-webkit-scrollbar {
   white-space: nowrap;
 }
 
-.foreground {
-  display: block;
-  margin: auto;
-  width: 400px;
-  height: 100px;
-}
-
 #bio {
   position: relative;
+  width: 100%;
   height: calc(100vh - 140px);
   color: #000;
 }
 
 #bio button {
   width: 30%;
-  max-width: 200px;
-  height: 40px;
+  max-width: 250px;
+  height: 50px;
   margin: auto;
   font-weight: bold;
+  font-size: 14px;
+  color: #000;
   background-color: #999;
   border: none;
   position: relative;
-  top: -16px;
+  border-radius: 12px;
   opacity: 0;
   -webkit-animation: 1s rise;
           animation: 1s rise;
@@ -96,13 +97,22 @@ html::-webkit-scrollbar {
           animation-timing-function: ease;
 }
 
-#bioAnim {
+#bio__anim {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.paragraphHead {
+#bio__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#bio__title {
   font: 12vw/1.4 Donsolas, monaco, monospace;
   text-align: center;
   font-weight: bold;
@@ -118,12 +128,12 @@ html::-webkit-scrollbar {
 }
 
 @media (min-width: 600px) {
-  .paragraphHead {
+  #bio__title {
     font: 60px/1.4 Donsolas, monaco, monospace;
   }
 }
 
-.paragraph {
+#bio__paragraph {
   position: relative;
   text-indent: 20px;
   text-align: center;
@@ -169,7 +179,19 @@ html::-webkit-scrollbar {
   background-color: #272822;
 }
 
-#languages {
+#showcase {
+  position: relative;
+  width: 100%;
+  background-color: #272822;
+}
+
+#showcase__languages__top {
+  height: 1px;
+  position: relative;
+  background-color: #000;
+}
+
+#showcase__languages__bar {
   position: -webkit-sticky;
   position: sticky;
   z-index: 2;
@@ -188,26 +210,362 @@ html::-webkit-scrollbar {
   transition: all 200ms ease;
 }
 
-#languagesTop {
-  height: 1px;
-  position: relative;
-  background-color: #000;
-}
-
-.languagesSticky {
+.showcase__languages__sticky {
   background-color: #999 !important;
 }
 
-.languageIcon {
+.showcase__languages__icon {
   height: 6vw;
   max-height: 40px;
   margin: auto;
 }
 
-#showcase {
+.repo {
+  width: 100vw;
+  height: 100vw;
+  color: #fff;
+}
+
+@media (min-width: 341px) {
+  .repo {
+    width: 50vw;
+    height: 50vw;
+  }
+}
+
+@media (min-width: 701px) {
+  .repo {
+    width: 33.3vw;
+    height: 33.3vw;
+  }
+}
+
+@media (min-width: 1201px) {
+  .repo {
+    width: 25vw;
+    height: 25vw;
+  }
+}
+
+.repo button {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 80px;
+  height: 40px;
+  background-color: red;
+  border-color: #a00;
+  border-radius: 12px;
+  border: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@media (min-width: 341px) {
+  .repo button {
+    right: 1vw;
+    bottom: 1vw;
+    width: 14vw;
+    height: 8vw;
+    font-size: 4vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) {
+  .repo button {
+    width: 8vw;
+    height: 4vw;
+    font-size: 2vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) and (min-width: 1201px) {
+  .repo button {
+    width: 6vw;
+    height: 3vw;
+    font-size: 1.5vw;
+  }
+}
+
+.repo__stars__icon {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  width: 40px;
+  height: 40px;
+}
+
+@media (min-width: 341px) {
+  .repo__stars__icon {
+    left: 1vw;
+    bottom: 1vw;
+    width: 8vw;
+    height: 8vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) {
+  .repo__stars__icon {
+    width: 4vw;
+    height: 4vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) and (min-width: 1201px) {
+  .repo__stars__icon {
+    width: 3vw;
+    height: 3vw;
+  }
+}
+
+.repo__stars__count {
+  position: absolute;
+  bottom: 8px;
+  left: 48px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+@media (min-width: 341px) {
+  .repo__stars__count {
+    left: 10vw;
+    bottom: 2vw;
+    width: 8vw;
+    height: 8vw;
+    font-size: 8vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) {
+  .repo__stars__count {
+    left: 6vw;
+    bottom: 1.5vw;
+    width: 4vw;
+    height: 4vw;
+    font-size: 4vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) and (min-width: 1201px) {
+  .repo__stars__count {
+    left: 4.5vw;
+    width: 3vw;
+    height: 3vw;
+    font-size: 3vw;
+  }
+}
+
+.repo__git {
+  position: absolute;
+  bottom: 4px;
+  right: 92px;
+  width: 40px;
+  height: 40px;
+}
+
+@media (min-width: 341px) {
+  .repo__git {
+    right: 16vw;
+    bottom: 1vw;
+    width: 8vw;
+    height: 8vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) {
+  .repo__git {
+    right: 10vw;
+    width: 4vw;
+    height: 4vw;
+    font-size: 4vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) and (min-width: 1201px) {
+  .repo__git {
+    right: 8vw;
+    width: 3vw;
+    height: 3vw;
+    font-size: 3vw;
+  }
+}
+
+.repo__cover__title {
   position: relative;
+  margin: 0;
   width: 100%;
-  background-color: #272822;
+  word-wrap: normal;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+@media (min-width: 341px) {
+  .repo__cover__title {
+    font-size: 5vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) {
+  .repo__cover__title {
+    font-size: 3.5vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) and (min-width: 1201px) {
+  .repo__cover__title {
+    font-size: 3vw;
+  }
+}
+
+.repo__cover__desc {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: 60%;
+  word-wrap: normal;
+  font-size: 20px;
+}
+
+@media (min-width: 341px) {
+  .repo__cover__desc {
+    font-size: 3.6vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) {
+  .repo__cover__desc {
+    font-size: 2.5vw;
+  }
+}
+
+@media (min-width: 341px) and (min-width: 701px) and (min-width: 1201px) {
+  .repo__cover__desc {
+    font-size: 2vw;
+  }
+}
+
+.repo__image {
+  width: 100%;
+  height: 100%;
+}
+
+.repo__link {
+  position: absolute;
+  bottom: 4px;
+  right: 38px;
+  width: 30px;
+  height: 30px;
+}
+
+@media (min-width: 341px) {
+  .repo__link {
+    width: 12vw;
+    height: 8vw;
+    right: 1vw;
+  }
+}
+
+.repo__cover {
+  opacity: 0;
+  position: relative;
+  left: 0;
+  top: -100%;
+  width: 92%;
+  height: 100%;
+  padding: 0 4% 0 4%;
+}
+
+.repo:hover .repo__image {
+  -webkit-animation: 0.8s blur_fade;
+          animation: 0.8s blur_fade;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+
+.repo:hover .repo__cover {
+  -webkit-animation: 0.8s repo__cover--rise;
+          animation: 0.8s repo__cover--rise;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+
+@-webkit-keyframes blur_fade {
+  from {
+    -webkit-filter: none;
+            filter: none;
+  }
+  to {
+    -webkit-filter: opacity(0.1);
+            filter: opacity(0.1);
+  }
+}
+
+@keyframes blur_fade {
+  from {
+    -webkit-filter: none;
+            filter: none;
+  }
+  to {
+    -webkit-filter: opacity(0.1);
+            filter: opacity(0.1);
+  }
+}
+
+@-webkit-keyframes repo__cover--rise {
+  from {
+    opacity: 0;
+    top: calc(-100% + 24px);
+  }
+  to {
+    opacity: 1;
+    top: -100%;
+  }
+}
+
+@keyframes repo__cover--rise {
+  from {
+    opacity: 0;
+    top: calc(-100% + 24px);
+  }
+  to {
+    opacity: 1;
+    top: -100%;
+  }
+}
+
+.showcase__link {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin: 2px;
+  left: 0;
+  top: 0;
+  background-size: 32px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  background-image: url("https://cdn1.iconfinder.com/data/icons/materia-video-games/24/003_003_eye_watch_view_views-512.png");
+}
+
+#showcase__space {
+  height: 100vh;
 }
 
 #repositories {
@@ -219,48 +577,6 @@ html::-webkit-scrollbar {
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-}
-
-.repo {
-  background-color: #fff;
-  width: 50vw;
-  height: 50vw;
-}
-
-@media (min-width: 401px) {
-  .repo {
-    width: 33.3vw;
-    height: 33.3vw;
-  }
-}
-
-@media (min-width: 801px) {
-  .repo {
-    width: 25vw;
-    height: 25vw;
-  }
-}
-
-.showcaseGraphic {
-  width: 100%;
-  height: 100%;
-}
-
-.showcaseLink {
-  visibility: hidden;
-  width: 32px;
-  height: 32px;
-  margin: 2px;
-  position: relative;
-  background-size: 32px;
-  background-repeat: no-repeat;
-  display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
-  white-space: nowrap;
-  left: -90px;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
 }
 
 #contact {

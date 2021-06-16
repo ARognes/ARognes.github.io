@@ -1,0 +1,15 @@
+{
+  "username": '',
+  "repos": {
+    "name": '',
+    "desc": '',
+    "url": '',
+    "created": '',
+    "uploaded": '',
+    "updated": '',
+    "stars": '',
+    "langs_url": '',
+    "langs": {},
+    "ignore": false
+  }
+}
