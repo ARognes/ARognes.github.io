@@ -3,9 +3,6 @@
  * @startdate 2/4/2020
 */
 
-// Repositories to load initially in showcase
-const BEST_REPO_NAMES = ['TileGrid', 'RognesCorp', 'BioFun'];
-
 // Resize bio to align with canvas
 document.getElementById('bio').style.height = window.innerHeight - 140 + 'px';
 
@@ -45,7 +42,7 @@ function draw() {
   let deltaTime = Date.now() - now;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
-  if (bubble.scale < 1) bubble.scale += deltaTime / 10000 * (1.02 - bubble.scale);
+  if (bubble.scale < 1) bubble.scale += deltaTime / 10000 * (1.001 - bubble.scale);
   bubble.left = bubble.right = Math.min(220 * bubble.scale + Math.sin(now / 100), 221);
   bubble.height = Math.min(140 * bubble.scale + Math.cos(now / 100), 141);
 
@@ -57,12 +54,12 @@ function draw() {
   ctx.fill();
 
   // Bio bottom bubble
-  ctx.rect(0, h - bubble.height / 2 * canvas.width / 800 + 1, w, bubble.height / 2 * canvas.width / 800 + 1);
-  ctx.fill();
-  ctx.fillStyle = '#fff';
   ctx.beginPath();
-  ctx.bezierCurveTo(0, h - bubble.height / 2 * canvas.width / 800, w / 4, h, w / 2, h);
-  ctx.bezierCurveTo(w / 2, h, 3 * w / 4 , h, w, h - bubble.height / 2 * canvas.width / 800);
+  ctx.moveTo(0, h + 2);
+  ctx.lineTo(0, h - bubble.height / 2 * canvas.width / 800);
+  ctx.bezierCurveTo(0, h - bubble.height / 2 * canvas.width / 800, w / 4, h, w / 2, h + 1);
+  ctx.bezierCurveTo(w / 2, h, 3 * w / 4 , h + 1, w, h - bubble.height / 2 * canvas.width / 800);
+  ctx.lineTo(w, h + 2);
   ctx.fill();
 
   if (bubble.scale < 1) requestAnimFrame(draw);
@@ -132,106 +129,4 @@ function blinkCursor() {
   }
 
   setTimeout(blinkCursor, 500);
-}
-
-let languages = document.getElementById('showcase__languages__bar');
-// TODO: also color the languageIcons here
-// Set repos to visible through transition
-
-// Repository language bar stick to top / move freely toggle
-let observer = new IntersectionObserver(function(entries) {
-	if (entries[0].intersectionRatio === 0 && entries[0].boundingClientRect.top <= 0) {
-    languages.classList.add('showcase__languages__sticky');
-  } else if (entries[0].intersectionRatio === 1)
-    languages.classList.remove('showcase__languages__sticky');
-}, { threshold: [0,1] });
-
-observer.observe(document.querySelector('#showcase__languages__top'));
-
-// Retrieved from: https://stackoverflow.com/questions/12460378/how-to-get-json-from-url-in-javascript
-// var getJSON = function(url, callback) {
-//   var xhr = new XMLHttpRequest();
-//   xhr.open('GET', url, true);
-//   xhr.responseType = 'json';
-//   xhr.onload = function() {
-//     var status = xhr.status;
-//     if (status === 200) {
-//       callback(null, xhr.response);
-//     } else {
-//       callback(status, xhr.response);
-//     }
-//   };
-//   xhr.send();
-// };
-// 
-// // Parse information from all of my repositories, uses 1 github api call
-// var repos = [];
-// var repositories_elem = document.getElementById('repositories');
-// // TODO: if no internet connection, display error image/message and don't bother with github api
-// getJSON('https://api.github.com/users/ARognes/repos', function(err, data) {
-//   if (err !== null) console.error(err);
-//   else {
-//     for (repo of data) {
-//       var condensed_repo = {name: repo['name'], desc: repo['description'], url: repo['html_url'], created: repo['created_at'], 
-//                             updated: repo['updated_at'], stars: repo['stargazers_count'], content_url: repo['url'] + '/content/',
-//                             showcase: ''/*, langs_url: repo['languages_url']*/};
-// 
-//       // Initially only load best repos
-//       for (name of BEST_REPO_NAMES) {
-//         if (condensed_repo.name === name) displayRepo(condensed_repo);
-//       }
-// 
-//       repos.push(condensed_repo);
-//     }
-// 
-//     // Save repos as cookie / to cache for 24 hours to prevent continual github api use
-//   }
-// });
-// 
-// // Ensures repo is fully loaded and writes repo to HTML
-// function displayRepo(repo) {
-//   if (repo.showcase === '') {
-//     getJSON(repo.content_url + '/contents/', function(err, data) {
-//       if (err !== null) console.error(err);
-//       else for (file of data) {
-//         if (file['name'].substr(0, 8) === 'showcase') {
-//           repo.showcase = file['download_url'];
-//           writeRepoToHTML(repo);
-//         }
-//       }
-//     });
-//   }
-//   else writeRepoToHTML(repo);
-// }
-
-// Load in repository information from saved_repos.json
-//const repos = './saved_repos.json'
-
-// Adds repo to the repositories_elem in HTML format
-let repositories_elem = document.getElementById('repositories');
-function writeRepoToHTML(repo) {
-  repositories_elem.innerHTML += '<div class="repo"><img src=' + repo.showcase + ' align="middle" class="showcase__graphic">'
-  + '<a href=' + repo.name + ' target="_blank" class="showcase__link");"></a>'
-  + '<a href=' + repo.url + ' target="_blank" class="showcase__link"></a></div>';
-}
-
-function queryRepos(lang) {
-  for (repo of repos) {
-    //if (repo.langs.find(r => r.))
-    /*if (lang === a lang in repo) {
-      writeRepoToHTML(repo);
-    }*/
-  }
-}
-
-// Currently unused
-function shakeLinks(elem) {
-  shakeLinksTime(elem.parentElement.children[1], elem.parentElement.children[2], 0);
-}
-
-function shakeLinksTime(link1, link2, t) {
-  if(link1.nodeName === 'A') link1.style.transform = "rotate(" + -Math.sin(t / 10) * 20 + "deg)";
-  if(link2.nodeName === 'A') link2.style.transform = "rotate(" + Math.sin(t / 10) * 20 + "deg)";
-  t++;
-  if (t < 95) setTimeout(shakeLinksTime, 5, link1, link2, t);
 }

@@ -3,6 +3,9 @@
  *
  */
 
+// Variables
+$background-color: #272822;
+
 // Fonts
 @font-face {
   font-family: Donsolas;
@@ -35,12 +38,25 @@ html, body {
   width: 100vw;
   height: 1000px;
 
-  font: 24px/1.3 Donsolas, monaco, monospace;
-  background-color: #fff;
+  font: 22px/1.3 Donsolas, monaco, monospace;
+  background-color: $background-color;
   color: #000;
+
+  @media screen and (max-width: 600px) {
+    font-size: 5vw;
+  }
 }
 
 html::-webkit-scrollbar { width: 0 !important }
+
+#title-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
 
 #title {
   position: relative;
@@ -71,7 +87,8 @@ html::-webkit-scrollbar { width: 0 !important }
 
 #bio {
   position: relative;
-  width: 100%;
+  padding: 0 2% 0 2%;
+  width: 96%;
   height: calc(100vh - 140px);
   color: #000;
 
@@ -143,339 +160,28 @@ html::-webkit-scrollbar { width: 0 !important }
   }
 }
 
-#experience {
+.section {
   position: relative;
-  padding: 54px 4% 0 0;
-  height: 200px;
-  color: #000;
-  background-color: #272822;
-}
-
-#showcase {
-  position: relative;
-  width: 100%;
-  background-color: #272822;
-}
-
-#showcase__languages__top {
-  height: 1px;
-  position: relative;
-  background-color: #000;
-}
-
-#showcase__languages__bar {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 2;
-  top: 0;
-  background-color: #000;
-  
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 10vw;
-  max-height: 80px;
-
-  transition: all 200ms ease;
-}
-
-.showcase__languages__sticky {
-  background-color: #999 !important;
-}
-
-.showcase__languages__icon {
-  height: 6vw;
-  max-height: 40px;
-  margin: auto;
-}
-
-.repo {
-  width: 100vw;
-  height: 100vw;
-  color: #fff;
-  @media(min-width: 341px) {
-    width: 50vw;
-    height: 50vw;
-  }
-  @media(min-width: 701px) {
-    width: 33.3vw;
-    height: 33.3vw;
-  }
-  @media(min-width: 1201px) {
-    width: 25vw;
-    height: 25vw;
-  }
-
-  button {
-    position: absolute; 
-    bottom: 4px; 
-    right: 4px; 
-    width: 80px; 
-    height: 40px;
-    background-color: red;
-    border-color: #a00;
-    border-radius: 12px;
-    border: 0;
-    font-weight: bold;
-    font-size: 20px;
-
-    @media(min-width: 341px) {
-      right: 1vw;
-      bottom: 1vw;
-      width: 14vw;
-      height: 8vw;
-      font-size: 4vw;
-      
-      @media(min-width: 701px) {
-        width: 8vw;
-        height: 4vw;
-        font-size: 2vw;
-
-        @media(min-width: 1201px) {
-          width: 6vw;
-          height: 3vw;
-          font-size: 1.5vw;
-        }
-      }
-    }
-  }
-}
-
-.repo__stars__icon {
-  position: absolute;
-  left: 4px;
-  bottom: 4px;
-  width: 40px;
-  height: 40px;
-
-  @media(min-width: 341px) {
-    left: 1vw;
-    bottom: 1vw;
-    width: 8vw;
-    height: 8vw;
-
-    @media(min-width: 701px) {
-      width: 4vw;
-      height: 4vw;
-
-      @media(min-width: 1201px) {
-        width: 3vw;
-        height: 3vw;
-      }
-    }
-  }
-}
-
-.repo__stars__count {
-  position: absolute;
-  bottom: 8px;
-  left: 48px;
-  width: 40px;
-  height: 40px;
   margin: 0;
-  padding: 0;
-  font-size: 36px;
-  font-weight: bold;
+  padding: 0 2% 0 2%;
+  width: 96%; 
+  height: 500px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  flex-direction: column;
+  text-align: center;
+  color: #999; 
+  background-color: $background-color;
 
-  @media(min-width: 341px) {
-    left: 10vw;
-    bottom: 2vw;
-    width: 8vw;
-    height: 8vw;
-    font-size: 8vw;
-
-    @media(min-width: 701px) {
-      left: 6vw;
-      bottom: 1.5vw;
-      width: 4vw;
-      height: 4vw;
-      font-size: 4vw;
-
-      @media(min-width: 1201px) {
-        left: 4.5vw;
-        width: 3vw;
-        height: 3vw;
-        font-size:3vw;
-      }
-    }
+  h2 {
+    margin: 0;
   }
 }
 
-.repo__git {
-  position: absolute;
-  bottom: 4px;
-  right: 92px; 
-  width: 40px; 
-  height: 40px;
 
-  @media(min-width: 341px) {
-    right: 16vw;
-    bottom: 1vw;
-    width: 8vw;
-    height: 8vw;
-    @media(min-width: 701px) {
-      right: 10vw;
-      width: 4vw;
-      height: 4vw;
-      font-size: 4vw;
 
-      @media(min-width: 1201px) {
-        right: 8vw;
-        width: 3vw;
-        height: 3vw;
-        font-size:3vw;
-      }
-    }
-  }
-}
-
-.repo__cover__title {
-  position: relative;
-  margin: 0; 
-  width: 100%; 
-  word-wrap: normal; 
-  text-align: center; 
-  font-size: 30px; 
-  font-weight: bold;
-  @media(min-width: 341px) {
-    font-size: 5vw;
-    @media(min-width: 701px) {
-      font-size: 3.5vw;
-      @media(min-width: 1201px) {
-        font-size: 3vw;
-      }
-    }
-  }
-}
-
-.repo__cover__desc {
-  position: relative;
-  margin: 0; 
-  width: 100%;
-  height: 60%;
-  word-wrap: normal; 
-  font-size: 20px;
-
-  @media(min-width: 341px) {
-    font-size: 3.6vw;
-    @media(min-width: 701px) {
-      font-size: 2.5vw;
-      @media(min-width: 1201px) {
-        font-size: 2vw;
-      }
-    }
-  }
-}
-
-.repo__image {
-  width: 100%;
-  height: 100%;
-}
-
-.repo__link {
-  position: absolute; 
-  bottom: 4px; 
-  right: 38px; 
-  width: 30px; 
-  height: 30px;
-
-  @media(min-width: 341px) {
-    width: 12vw;
-    height: 8vw;
-    right: 1vw;
-  }
-}
-
-.repo__cover {
-  opacity: 0;
-  position: relative;
-  left: 0;
-  top: -100%;
-  width: 92%;
-  height: 100%;
-  padding: 0 4% 0 4%;
-}
-
-.repo:hover {
-
-  .repo__image {
-    animation: 0.8s blur_fade;
-    animation-delay: 0s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease;
-  }
-
-  .repo__cover {
-    animation: 0.8s repo__cover--rise;
-    animation-delay: 0s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease;
-  }
-}
-
-@keyframes blur_fade {
-  from {
-    filter: none;
-  }
-  to {
-    //filter: blur(8px) + opacity(0.4);
-    filter: opacity(0.1);
-  }
-}
-
-@keyframes repo__cover--rise {
-  from {
-    opacity: 0;
-    top: calc(-100% + 24px);
-  }
-  to {
-    opacity: 1;
-    top: -100%;
-  }
-}
-
-.showcase__link {
-  //visibility: hidden;
-  position: relative;
-  width: 32px;
-  height: 32px;
-  margin: 2px;
-  left: 0;
-  top: 0;
-  background-size: 32px;
-  background-repeat: no-repeat;
-  display: inline-block;
+a {
+  color: #44f;
   text-decoration: none;
-  cursor: pointer;
-  white-space: nowrap;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-  background-image: url("https://cdn1.iconfinder.com/data/icons/materia-video-games/24/003_003_eye_watch_view_views-512.png");
-  //background-image: url("https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-512.png");
-}
-
-#showcase__space {
-  height: 100vh;
-}
-
-#repositories {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-}
-
-#contact {
-  position: relative;
-  height: 500px;
-  padding: calc(100vh - 500px) 4% 0 4%;
-  
-  background-color: #272822;
-}
-
-.textbox {
-  width:90vw; 
-  font-size: 18px; 
-  border:none; 
-  padding-left: 4px;
-  margin-top: 20px;
 }
