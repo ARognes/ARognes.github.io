@@ -10,11 +10,11 @@
   <meta name="author" content="Austin Rognes">
   <link rel="icon" href="./images/resume_icon.png">
   <link href="style.css" rel="stylesheet">
-  <script defer src="index.js"></script>
+  <script defer src="public/index.js"></script>
   <noscript>Your browser does not support JavaScript!</noscript>
 </head>
 <body>
-  <div id="title-background"></div>
+  <div id="header-background"></div>
   <canvas width="100" height="100" id="bio__anim">Your browser does not support html canvas</canvas>
 
   <!-- Preload icons -->
@@ -25,17 +25,17 @@
 
 
   <!-- Title bubble -->
-  <div id="title">
+  <header id="header">
     <p style="position: absolute; top: -28px; width: 100%;"><i style="font-size: 20px; color: #66d9ef">let </i>Austin_Rognes<span style="font-size:20px; color: #f92672"> =</span></p>
     <p style="position: absolute; top: 16px; width: 100%;">{<a href="https://github.com/ARognes" target="_blank" style="background-image: url('./images/github_icon.png');"></a>, 
     <a href="https://www.linkedin.com/in/austin-rognes-7858aa171" target="_blank" style="background-image: url('./images/linkedin_icon.png');"></a>,
     <a href="mailto: aurognes@gmail.com"  style="background-image: url('./images/email_icon.png');"></a>, 
     <a href="./Austin Rognes - Resume.pdf" target="_blank" style="background-image: url('./images/resume_icon.png');"></a>};</p>
-  </div>
+  </header>
 
   <div id="bio">
     <p id="bio__title">Software Developer</p>
-    <p id="bio__paragraph">I'm always learning new languages, frameworks, libraries, etc. to create interesting new projects. I'm currently looking for an internship!</p>
+    <p id="bio__paragraph">I'm always learning new languages like Rust!, frameworks, libraries, etc. to create interesting new projects. I'm currently looking for a full time position!</p>
     <div id="bio__buttons">
       <button type="button" onclick="document.getElementById('experience').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Experience</button>
       <button type="button" onclick="document.getElementById('showcase').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Projects</button>
@@ -56,5 +56,7 @@
     <a href="https://github.com/ARognes/AlgoGrid"><p>AlgoGrid</p></a>
     <p>(Links to Github)</p>
   </div>
+
+
 </body>
 </html>
