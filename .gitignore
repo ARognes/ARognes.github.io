@@ -1,5 +1,4 @@
 node_modules
-style.css
 *.css.map
 .sass-cache/
 *.png~
