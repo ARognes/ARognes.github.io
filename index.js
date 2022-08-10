@@ -1,8 +1,3 @@
-/**
- * @author Austin Rognes
- * @startdate 2/4/2020
-*/
-
 // Resize bio to align with canvas
 document.getElementById('bio').style.height = window.innerHeight - 140 + 'px';
 
