@@ -19,25 +19,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with: 
           node-version: 16
 
-      - name: Run a multi-line script
+      - name: Run index.js
+        env:
+          KEY: ${{ secrets.KEY }}
+          EMAIL: ${{ secrets.EMAIL }}
         run: |
-          ls
           pwd
+          ls
           cd actions
           npm i
           node .
           echo "Yoinked resume from Google Drive"
-
-  repush:
-    runs-on: ubuntu-latest
-    steps:
+      - name: Print info
+        run: |
+          pwd
+          ls
+          cd ..
+          pwd
+          ls
       - uses: EndBug/add-and-commit@v9.1.0
         with:
           commit: --signoff
           message: "Auto yoink resume from Google Drive"
+      
