@@ -25,7 +25,7 @@ jobs:
         with: 
           node-version: 16
 
-      - name: Run a multi-line script
+      - name: Run index.js
         env:
           KEY: ${{ secrets.KEY }}
           EMAIL: ${{ secrets.EMAIL }}
@@ -34,19 +34,23 @@ jobs:
           pwd
           cd actions
           npm i
-          echo "Running index.js"
           node .
           echo "Yoinked resume from Google Drive"
+      - name: Print info
+        run: |
           pwd
           ls
           cd ..
           pwd
           ls
+      - name: Test
+        run: |
+          touch "HELLO_WORLD.txt"
 
-  repush:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: EndBug/add-and-commit@v9.1.0
-        with:
-          commit: --signoff
-          message: "Auto yoink resume from Google Drive"
+#   repush:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: EndBug/add-and-commit@v9.1.0
+#         with:
+#           commit: --signoff
+#           message: "Auto yoink resume from Google Drive"
