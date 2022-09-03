@@ -26,18 +26,22 @@ jobs:
           node-version: 16
 
       - name: Run a multi-line script
+        env:
+          KEY: ${{ secrets.KEY }}
+          EMAIL: ${{ secrets.EMAIL }}
         run: |
           ls
           pwd
           cd actions
-          touch .env
-          echo KEY=${{ secrets.KEY }} >> .env
-          echo EMAIL=${{ secrets.EMAIL }} >> .env
-          cat .env
           npm i
           echo "Running index.js"
           node .
           echo "Yoinked resume from Google Drive"
+          pwd
+          ls
+          cd ..
+          pwd
+          ls
 
   repush:
     runs-on: ubuntu-latest
