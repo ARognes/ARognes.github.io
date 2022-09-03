@@ -33,7 +33,9 @@ jobs:
           touch .env
           echo KEY=${{ secrets.KEY }} >> .env
           echo EMAIL=${{ secrets.EMAIL }} >> .env
+          cat .env
           npm i
+          echo "Running index.js"
           node .
           echo "Yoinked resume from Google Drive"
 
