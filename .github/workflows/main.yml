@@ -27,6 +27,8 @@ jobs:
 
       - name: Run a multi-line script
         run: |
+          ls,
+          pwd,
           cd actions,
           npm i,
           node .,
