@@ -47,10 +47,14 @@ jobs:
         run: |
           touch "HELLO_WORLD.txt"
 
-#   repush:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: EndBug/add-and-commit@v9.1.0
-#         with:
-#           commit: --signoff
-#           message: "Auto yoink resume from Google Drive"
+  repush:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: EndBug/add-and-commit@v9.1.0
+        with:
+          commit: --signoff
+          message: "Auto yoink resume from Google Drive"
+      - name: Test
+        run: |
+          pwd
+          ls -la
