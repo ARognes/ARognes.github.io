@@ -19,7 +19,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with: 
@@ -30,8 +29,8 @@ jobs:
           KEY: ${{ secrets.KEY }}
           EMAIL: ${{ secrets.EMAIL }}
         run: |
-          ls
           pwd
+          ls
           cd actions
           npm i
           node .
@@ -43,19 +42,6 @@ jobs:
           cd ..
           pwd
           ls
-      - name: Test
-        run: |
-          touch "HELLO_WORLD.txt"
-
-  repush:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test
-        run: |
-            pwd
-            ls -la
-            
       - uses: EndBug/add-and-commit@v9.1.0
         with:
           commit: --signoff
