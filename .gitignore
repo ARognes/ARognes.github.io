@@ -2,3 +2,5 @@ node_modules
 *.css.map
 .sass-cache/
 *.png~
+.env
+

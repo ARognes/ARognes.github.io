@@ -117,7 +117,7 @@ header a
   
   text-align: center
   font-weight: bold
-  margin-top: 0
+  margin: 0
   opacity: 0
   animation: 1s rise
   animation-delay: 1.4s
@@ -125,8 +125,10 @@ header a
   text-shadow: 4px 4px #ddd
 
 #bio__paragraph 
-  position: relative; text-indent: 20px
+  position: relative
+  display: block
   text-align: center
+  margin: 20px 0 40px 0
   top: -16px
   opacity: 0
   animation: 1s rise
@@ -145,10 +147,9 @@ header a
 
 .section 
   position: relative
-  margin: 0
+  margin: 20px 0 100px 0
   padding: 0 2% 0 2%
   width: 96%
-  height: 500px
   display: flex
   align-items: center
   justify-content: center
@@ -163,3 +164,22 @@ header a
 a 
   color: #44f
   text-decoration: none
+
+iframe
+  position: relative
+  padding: 0 2% 0 2%
+  width: 96%
+  height: 40vw
+
+.showcase-project
+  position: relative
+  width: 100%
+  height: 100%
+  margin: 0 0 100px 0
+
+  img
+    width: 96%
+    height: auto
+
+footer
+  color: #999 

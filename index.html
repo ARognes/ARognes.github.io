@@ -35,27 +35,80 @@
 
   <div id="bio">
     <p id="bio__title">Software Developer</p>
-    <p id="bio__paragraph">I'm always learning new languages, frameworks, libraries, etc. to create interesting new projects. I'm currently looking for a full time position!</p>
+    <span id="bio__paragraph">
+      I'm always learning new languages, frameworks, 
+      libraries, etc. to create interesting new projects. 
+      I'm currently looking for a full time position!
+    </span>
+    <span id="bio__paragraph">
+      Check out my projects!
+    </span>
     <div id="bio__buttons">
-      <button type="button" onclick="document.getElementById('experience').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Experience</button>
       <button type="button" onclick="document.getElementById('showcase').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Projects</button>
     </div>
   </div>
 
   <div id="experience" class="section">
-    <h2>Experience</h2>
-    <p>I've made android and pc games, websites, and web-apps for visualizing complex algorithms because it's my passion. I'm working on a degree in Software Engineering at Iowa State Univerity. I love doing time hack challenges with <a href="https://mlh.io/">MLH</a>, <a href="https://ldjam.com/">Ludum Dare</a>, and <a href="https://battlecode.org/">MIT Battlecode</a>. I usually make a random project when I learn a new language.</p>
+    <h1>Experience</h1>
+    <span>
+      I currently work at Hy-Vee as a Software Developer.
+    </span>
   </div>
 
-  <!-- Just put this next div section in, will improve later -->
   <div id="showcase" class="section">
-    <h2>Top Projects</h2>
-    <a href="https://github.com/ARognes/Equipment-Record"><p>Equipment-Record</p></a>
-    <a href="https://github.com/ARognes/Battlecode"><p>Battlecode</p></a>
-    <a href="https://github.com/ARognes/VolQuery"><p>VolQuery</p></a>
-    <a href="https://github.com/ARognes/AlgoGrid"><p>AlgoGrid</p></a>
-    <p>(Links to Github)</p>
+    <h1>Top Projects</h1>
+    <div class="showcase-project">
+      <a href="https://github.com/ARognes/AlgoGrid"><h2>AlgoGrid</h2></a>
+      <span>
+        An algorithm visualizer that runs Conway's Game of Life and A* Pathfinding. It is written in TypeScript. Try it out!
+      </span>
+      <br><br>
+      <iframe src="https://arognes.com/AlgoGrid" 
+        name="AlgoGrid" 
+        width="600" 
+        height="400" 
+        frameborder="0"
+        allowfullscreen="true"
+        loading="lazy"
+        >
+          arognes.com/AlgoGrid demo, check it out!
+      </iframe>
+    </div>
+    <div class="showcase-project">
+      <a href="https://github.com/ARognes/Equipment-Record"><h2>Equipment-Record</h2></a>
+      <span>
+        A web-app that keeps track of construction equipment through QR-code, barcode, or unique name.
+        This allows for better understanding and tracking of equimpent throughout job sites. 
+        It also improves knowledge of ownership and gives insight into where and how equipment is lost.
+
+      </span>
+      <br><br>
+      Image / Video here
+    </div>
+    <div class="showcase-project">
+      <a href="https://github.com/ARognes/Battlecode"><h2>MIT BattleCode 2020</h2></a>
+      <span>
+        A fun competition with the Iowa State AI Club.
+
+      </span>
+      <br><br>
+      Image / Video here
+    </div>
+    <div class="showcase-project">
+      <a href="https://github.com/ARognes/Estoc"><h2>Keyboard</h2></a>
+      <span>
+        A 42 key, bluetooth keyboard with at least 100mAh battery life per side. 
+        You can even snap off the 3 pinky keys for 36 keys if you're that far gone!
+        This project is currently waiting on assembly of Prototype V0.2 to continue.
+        This is more of a hardware project but I just love making things.
+      </span>
+      <br><br>
+      <img src="./images/Keyboard.jpeg" alt="Image of custom keyboard">
+    </div>
   </div>
 
+  <footer>
+    aurognes@gmail.com
+  </footer>
 </body>
 </html>
