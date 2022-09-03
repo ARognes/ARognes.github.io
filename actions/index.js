@@ -4,8 +4,8 @@ require('dotenv').config()
 
 const resumeId = '1pWZyMr6CMDhBaMISAWG7zYhaK6WMKxRhKsb9JU1hY5s'
 
-const KEY = process.env['key'].replace(/\\n/g, '\n');
-const EMAIL = process.env['email'];
+const KEY = process.env['KEY'].replace(/\\n/g, '\n');
+const EMAIL = process.env['EMAIL'];
 
 const SCOPES = ['https://www.googleapis.com/auth/drive'];
 
