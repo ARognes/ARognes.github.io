@@ -30,6 +30,9 @@ jobs:
           ls
           pwd
           cd actions
+          touch .env
+          echo KEY=${{ secrets.KEY }} >> .env
+          echo EMAIL=${{ secrets.EMAIL }} >> .env
           npm i
           node .
           echo "Yoinked resume from Google Drive"
