@@ -23,7 +23,6 @@
   <link rel="preload" as="image" href="./images/email_icon.png">
   <link rel="preload" as="image" href="./images/resume_icon.png">
 
-
   <!-- Title bubble -->
   <header id="header">
     <p style="position: absolute; top: -28px; width: 100%;"><i style="font-size: 20px; color: #66d9ef">let </i>Austin_Rognes<span style="font-size:20px; color: #f92672"> =</span></p>
@@ -33,31 +32,76 @@
     <a href="./Austin Rognes - Resume.pdf" target="_blank" style="background-image: url('./images/resume_icon.png');"></a>};</p>
   </header>
 
-  <div id="bio">
+  <section id="bio">
     <p id="bio__title">Software Developer</p>
     <span id="bio__paragraph">
       I'm always learning new languages, frameworks, 
-      libraries, etc. to create interesting new projects. 
-      I'm currently looking for a full time position!
+      libraries, etc. to create interesting new projects.
+      I'm currently interning part time with Hy-Vee, 
+      however I am still looking for a full time position starting December 2022!
     </span>
-    <span id="bio__paragraph">
-      Check out my projects!
-    </span>
-    <div id="bio__buttons">
-      <button type="button" onclick="document.getElementById('showcase').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Projects</button>
-    </div>
-  </div>
+  </section>
 
-  <div id="experience" class="section">
+  <section id="main">
+    <h1 id="main__title">Projects</h1>
+    <section id="projects">
+<article class="showcase">
+	<div>
+		<h1>Collins Aerospace: Simultaneous Call Transmission</h1>
+		<h2>January 2022 - December 2022</h2>
+		<span><a href="http://sddec22-13.sd.ece.iastate.edu/">Website</a>
+</span>
+	</div>
+	<img loading="lazy" alt="null" src="null"</img>
+</article>
+<article class="showcase">
+	<div>
+		<h1>Equipment-Record</h1>
+		<h2>August 2021 - August 2022</h2>
+		<span></span>
+	</div>
+	<img loading="lazy" alt="null" src="null"</img>
+</article>
+<article class="showcase">
+	<div>
+		<h1>AlgoGrid</h1>
+		<h2>December 2019 - Janary 2020, August 2022 - September 2022</h2>
+		<span>A TypeScript implementation of an algorithm visualizer. Currently it runs the A* search algorithm as well as Conway's Game of Life.
+</span>
+	</div>
+	<img loading="lazy" alt="null" src="null"</img>
+</article>
+<article class="showcase">
+	<div>
+		<h1>Keyboard</h1>
+		<h2>April 2022 - August 2022</h2>
+		<span>Designed and manufactured a 42 or 36 key, bluetooth keyboard capable of at least 100mAh battery life per side.
+</span>
+	</div>
+	<img loading="lazy" alt="Image of keyboard PCB" src="https://raw.githubusercontent.com/ARognes/Estoc/main/Images/pcb_V0.2.jpg"</img>
+</article>
+<article class="showcase">
+	<div>
+		<h1>Affordable Housing</h1>
+		<h2>March 2017</h2>
+		<span>Designed an affordable house that was built in Des Moines,  IA using Autodesk Revit for the <a href="https://www.pchtf.org/about-us/recent-news/austin-rognes-has-the-floor/">Polk County Housing Trust Fund</a>. This was a month long competition among a few high schools in Iowa my Junior year.
+</span>
+	</div>
+	<img loading="lazy" alt="Image of house" src="images/House.avif"</img>
+</article>
+		</section>
+  </section>
+
+  <!-- <section id="experience">
     <h1>Experience</h1>
     <span>
       I currently work at Hy-Vee as a Software Developer.
     </span>
-  </div>
+  </section>
 
-  <div id="showcase" class="section">
+  <section id="showcase">
     <h1>Top Projects</h1>
-    <div class="showcase-project">
+    <article class="showcase-project">
       <a href="https://github.com/ARognes/AlgoGrid"><h2>AlgoGrid</h2></a>
       <span>
         An algorithm visualizer that runs Conway's Game of Life and A* Pathfinding. It is written in TypeScript. Try it out!
@@ -73,8 +117,8 @@
         >
           arognes.com/AlgoGrid demo, check it out!
       </iframe>
-    </div>
-    <div class="showcase-project">
+    </article>
+    <article class="showcase-project">
       <a href="https://github.com/ARognes/Equipment-Record"><h2>Equipment-Record</h2></a>
       <span>
         A web-app that keeps track of construction equipment through QR-code, barcode, or unique name.
@@ -84,8 +128,8 @@
       </span>
       <br><br>
       Image / Video here
-    </div>
-    <div class="showcase-project">
+    </article>
+    <article class="showcase-project">
       <a href="https://github.com/ARognes/Battlecode"><h2>MIT BattleCode 2020</h2></a>
       <span>
         A fun competition with the Iowa State AI Club.
@@ -93,8 +137,8 @@
       </span>
       <br><br>
       Image / Video here
-    </div>
-    <div class="showcase-project">
+    </article>
+    <article class="showcase-project">
       <a href="https://github.com/ARognes/Estoc"><h2>Keyboard</h2></a>
       <span>
         A 42 key, bluetooth keyboard with at least 100mAh battery life per side. 
@@ -104,10 +148,12 @@
       </span>
       <br><br>
       <img src="./images/Keyboard.jpeg" alt="Image of custom keyboard">
-    </div>
-  </div>
+    </article>
+  </section> -->
 
   <footer>
+    <span id="Updated">Updated: September 4, 2022</span>
+    <br>
     aurognes@gmail.com
   </footer>
 </body>

@@ -1,0 +1,46 @@
+
+
+"Collins Aerospace: Simultaneous Call Transmission":
+  description: >
+    <a href="http://sddec22-13.sd.ece.iastate.edu/">Website</a>
+  duration: January 2022 - December 2022
+  image: 
+    src: 
+    alt: 
+
+
+Equipment-Record:
+  description: >
+    
+  duration: August 2021 - August 2022
+  image: 
+    src: 
+    alt: 
+
+AlgoGrid:
+  description: >
+    A TypeScript implementation of an algorithm visualizer.
+    Currently it runs the A* search algorithm as well as Conway's Game of Life.
+  duration: December 2019 - Janary 2020, August 2022 - September 2022
+  image: 
+    src: 
+    alt: 
+
+Keyboard:
+  description: >
+    Designed and manufactured a 42 or 36 key, bluetooth keyboard capable of at least 100mAh battery life per side.
+  duration: April 2022 - August 2022
+  image: 
+    src: https://raw.githubusercontent.com/ARognes/Estoc/main/Images/pcb_V0.2.jpg
+    alt: Image of keyboard PCB
+
+
+Affordable Housing:
+  description: >
+    Designed an affordable house that was built in Des Moines, 
+    IA using Autodesk Revit for the <a href="https://www.pchtf.org/about-us/recent-news/austin-rognes-has-the-floor/">Polk County Housing Trust Fund</a>.
+    This was a month long competition among a few high schools in Iowa.
+  duration: March 2017
+  image: 
+    src: images/House.avif
+    alt: Image of house
