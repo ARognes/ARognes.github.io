@@ -17,8 +17,62 @@ const isMobile = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer
     ? true : false
 
 
-// Updated with draw()
+class Grid {
+  width: number
+  height: number
+  tiles: boolean[][]
+
+  constructor(width: number, height: number) {
+    this.width = Math.floor(width)
+    this.height = Math.floor(height)
+    this.tiles = Array.from({ length: this.width}, () => Array.from({ length: this.height }, () => false)) 
+
+    for (let y = 0; y < this.height; y++) {
+      this.tiles[Math.floor(this.width / 8)][y] = Math.random() < 0.8
+      this.tiles[Math.floor(this.width * 7/8)][y] = Math.random() < 0.8
+    }
+  }
+
+  step() {
+    const newTiles = Array.from({ length: this.width}, () => Array.from({ length: this.height }, () => false))
+    for (let x = 0; x < this.width; x++) {
+      for (let y = 0; y < this.height; y++) {
+        const neighbors = this.getNeighbors(x, y)
+        if (this.tiles[x][y]) {
+          newTiles[x][y] = neighbors === 2 || neighbors === 3
+        } else {
+          newTiles[x][y] = neighbors === 3
+        }
+      }
+    }
+    this.tiles = newTiles
+  }
+
+  getNeighbors(x: number, y: number) {
+    let neighbors = 0
+    for (let i = -1; i <= 1; i++) {
+      for (let j = -1; j <= 1; j++) {
+        if (i === 0 && j === 0) continue
+        if (this.tiles[(x + i + this.width) % this.width][(y + j + this.height) % this.height]) {
+          neighbors++
+        }
+      }
+    }
+    return neighbors
+  }
+}
 let now = Date.now()
+
+const TILE_SIZE = 20
+const TILE_COLOR = '#f8f8f8'
+const TILE_COLOR_SIDE = '#f4f4f4'
+const TILE_SIDE_OFFSET = 4
+let lifeStep = 0
+let lifeStepTime = now
+const LIFE_STEP_DURATION = 2000
+const grid = new Grid(window.outerWidth / TILE_SIZE, window.outerHeight / TILE_SIZE)
+
+// Updated with draw()
 
 // Background bubble
 const BUBBLE_FULL = { left: 220, right: 220, height: 140 }
@@ -35,13 +89,37 @@ let w = 0, h = 0
 resize()
 
 function draw() {
-  let deltaTime = Date.now() - now
+  const nowNow = Date.now()
+  let deltaTime = nowNow - now
+  now = nowNow
   ctx.clearRect(0, 0, canvas.width, canvas.height)
-  
-  if (bubble.scale < 1) bubble.scale += deltaTime / 10000 * (1.001 - bubble.scale)
-  bubble.left = Math.min(BUBBLE_FULL.left * bubble.scale + Math.sin(now / 100), BUBBLE_FULL.left + 1)
-  bubble.right = Math.min(BUBBLE_FULL.right * bubble.scale + Math.sin(now / 100), BUBBLE_FULL.right + 1)
-  bubble.height = Math.min(BUBBLE_FULL.height * bubble.scale + Math.cos(now / 100), BUBBLE_FULL.height + 1)
+
+  lifeStepTime += deltaTime
+  if (lifeStepTime >= LIFE_STEP_DURATION) {
+    lifeStepTime = 0
+    lifeStep++
+    grid.step()
+  }
+
+  // Draw Conway's Game of Life
+  ctx.fillStyle = TILE_COLOR_SIDE
+  for (let x = 0; x < grid.width; x++) 
+    for (let y = 0; y < grid.height; y++) 
+      if (grid.tiles[x][y]) 
+        ctx.fillRect(x * TILE_SIZE + TILE_SIDE_OFFSET, y * TILE_SIZE + TILE_SIDE_OFFSET, TILE_SIZE, TILE_SIZE)
+
+  ctx.fillStyle = TILE_COLOR
+  for (let x = 0; x < grid.width; x++) 
+    for (let y = 0; y < grid.height; y++) 
+      if (grid.tiles[x][y]) 
+        ctx.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
+
+
+  // Draw background bubble
+  if (bubble.scale < 1) bubble.scale += deltaTime / 400 * (1.001 - bubble.scale)
+  bubble.left = Math.min(BUBBLE_FULL.left * bubble.scale + Math.sin(now / 1000), BUBBLE_FULL.left + 1)
+  bubble.right = Math.min(BUBBLE_FULL.right * bubble.scale + Math.sin(now / 1000), BUBBLE_FULL.right + 1)
+  bubble.height = Math.min(BUBBLE_FULL.height * bubble.scale + Math.cos(now / 1000), BUBBLE_FULL.height + 1)
 
   // Header bubble
   ctx.fillStyle = '#272822'
@@ -65,7 +143,8 @@ function draw() {
   ctx.lineTo(w, h + 2)
   ctx.fill()
 
-  if (bubble.scale < 1) window.requestAnimFrame(draw)
+  // if (bubble.scale < 1) 
+  window.requestAnimFrame(draw)
 }
 draw() // Not IIFE as resizing canvas would not have access to draw()
 

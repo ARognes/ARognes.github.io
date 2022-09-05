@@ -5,12 +5,6 @@
 
 @font-face {
   font-family: PlusJakartaSans;
-  src: url(fonts/PlusJakartaSans-Bold.woff);
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: PlusJakartaSans;
   src: url(fonts/PlusJakartaSans-SemiBold.woff);
   font-weight: 600;
 }
@@ -113,6 +107,7 @@ header a {
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
   text-shadow: 4px 4px #ddd;
+  z-index: 2;
 }
 
 @media (max-width: 600px) {
@@ -137,6 +132,7 @@ header a {
           animation-fill-mode: forwards;
   -webkit-animation-timing-function: ease-out;
           animation-timing-function: ease-out;
+  z-index: 2;
 }
 
 #bio__anim {
