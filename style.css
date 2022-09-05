@@ -40,14 +40,31 @@ html::-webkit-scrollbar {
 header {
   position: relative;
   top: 0;
-  text-align: center;
   overflow: hidden;
   color: white;
   font: 30px/1.6 PlusJakartaSans, sans-serif;
+  text-align: left;
   height: 130px;
   margin-bottom: 10px;
   white-space: nowrap;
   z-index: 2;
+}
+
+header #header__line1 {
+  position: absolute;
+  top: -28px;
+  left: calc(50% - 132px);
+}
+
+header #header__line2 {
+  position: absolute;
+  top: 18px;
+  left: calc(50% - 120px);
+}
+
+header #let {
+  font-size: 20px;
+  color: #66d9ef;
 }
 
 header a {
@@ -247,53 +264,53 @@ header a {
 }
 
 .showcase:nth-child(1n) {
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
 }
 
 .showcase:nth-child(2n) {
-  -webkit-animation-delay: 1.8s;
-          animation-delay: 1.8s;
+  -webkit-animation-delay: 1.6s;
+          animation-delay: 1.6s;
 }
 
 .showcase:nth-child(3n) {
-  -webkit-animation-delay: 2.1s;
-          animation-delay: 2.1s;
+  -webkit-animation-delay: 1.9s;
+          animation-delay: 1.9s;
 }
 
 .showcase:nth-child(4n) {
-  -webkit-animation-delay: 2.4s;
-          animation-delay: 2.4s;
+  -webkit-animation-delay: 2.2s;
+          animation-delay: 2.2s;
 }
 
 .showcase:nth-child(5n) {
-  -webkit-animation-delay: 2.7s;
-          animation-delay: 2.7s;
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
 }
 
 .showcase:nth-child(6n) {
-  -webkit-animation-delay: 3s;
-          animation-delay: 3s;
+  -webkit-animation-delay: 2.8s;
+          animation-delay: 2.8s;
 }
 
 .showcase:nth-child(7n) {
-  -webkit-animation-delay: 3.3s;
-          animation-delay: 3.3s;
+  -webkit-animation-delay: 3.1s;
+          animation-delay: 3.1s;
 }
 
 .showcase:nth-child(8n) {
-  -webkit-animation-delay: 3.6s;
-          animation-delay: 3.6s;
+  -webkit-animation-delay: 3.4s;
+          animation-delay: 3.4s;
 }
 
 .showcase:nth-child(9n) {
-  -webkit-animation-delay: 3.9s;
-          animation-delay: 3.9s;
+  -webkit-animation-delay: 3.7s;
+          animation-delay: 3.7s;
 }
 
 .showcase:nth-child(10n) {
-  -webkit-animation-delay: 4.2s;
-          animation-delay: 4.2s;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
 }
 
 #projects {
@@ -330,13 +347,6 @@ section h2 {
 a {
   color: #44f;
   text-decoration: none;
-}
-
-iframe {
-  position: relative;
-  padding: 0 2% 0 2%;
-  width: 96%;
-  height: 40vw;
 }
 
 footer {

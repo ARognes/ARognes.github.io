@@ -6,8 +6,9 @@ const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
 const dpx = window.devicePixelRatio || 1
 ctx.scale(dpx, dpx)
 
-const ANIM_TYPE_WRITER_DELAY = 300
+const ANIM_TYPE_WRITER_DELAY = 400
 const ANIM_TYPE_WRITER_FREQ = 50
+const ANIM_CURSOR_BLINK_FREQ = 500
 
 // Check if viewing on mobile device
 // Device detection retrieved from: https://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-mobile-device/3540295#3540295
@@ -81,61 +82,69 @@ function resize() {
 }
 
 
-// Typewriter initializes by saving header text in typewriterTemp
-// and then clearing out the visible text in typewriterElems
-let typewriterElems: HTMLParagraphElement[] = [header.childNodes[1], 
-                      header.childNodes[3]] as HTMLParagraphElement[]
+class Typewriter {
+  rows: HTMLParagraphElement[]
+  rowsTemp: string[] = []
 
-let typewriterTemp: string[] = []
-for (let i = 0; i < typewriterElems.length; i++) {
-  typewriterTemp[i] = typewriterElems[i].innerHTML
-  typewriterElems[i].innerHTML = ''
-}
+  constructor(rows: HTMLParagraphElement[]) {
+    this.rows = rows
+    for (let i = 0; i < this.rows.length; i++) {
+      this.rowsTemp.push(this.rows[i].innerHTML)
+      this.rows[i].innerHTML = ''
+    }
+  }
 
+  start() {
+    setTimeout(() => { this.animTypeWriter(0, 0) }, ANIM_TYPE_WRITER_DELAY)
+  }
 
-function animTypeWriter(blinkerIndex: number) {
-
+  animTypeWriter(row: number, index: number) {
     // End of line
-    if (typewriterElems[blinkerIndex].innerHTML.length >= typewriterTemp[blinkerIndex].length) {
-      blinkerIndex++
+    if (this.rows[row].innerHTML.length >= this.rowsTemp[row].length) {
+      row++
+      index = 0
 
       // Finished all lines
-      if (blinkerIndex === 2) {
-        typewriterElems[1].innerHTML = typewriterTemp[1]
-        blinkCursor()
+      if (row >= 2) {
+        this.rows[1].innerHTML = this.rowsTemp[1]
+        this.blinkCursor()
         return
       }
     }
     
-    let next = typewriterElems[blinkerIndex].innerHTML.length
-
     // Treat html tag as a single character (expecting <a></a>)
-    if (typewriterTemp[blinkerIndex][next] === '<') {
+    if (this.rowsTemp[row][index] === '<') {
+      
       // Find 2 greater-than signs
-      while(typewriterTemp[blinkerIndex][next] !== '>') next++
-      do next++  // A rare 'do while' loop grazing in its natural habitat
-      while(typewriterTemp[blinkerIndex][next] !== '>')
-    } else while (typewriterTemp[blinkerIndex][next + 1] === " ") next++
+      while(this.rowsTemp[row][index] !== '>') index++
+      do index++  // A rare 'do while' loop grazing in its natural habitat
+      while(this.rowsTemp[row][index] !== '>')
+
+    } else while (this.rowsTemp[row][index + 1] === ' ') index++
     
-    typewriterElems[blinkerIndex].innerHTML = typewriterTemp[blinkerIndex].substring(0, next)
-    if (typewriterElems[blinkerIndex].innerHTML.length < typewriterTemp[blinkerIndex].length) 
-      typewriterElems[blinkerIndex].innerHTML += "|"
+    this.rows[row].innerHTML = this.rowsTemp[row].substring(0, index)
+    if (this.rows[row].innerHTML.length < this.rowsTemp[row].length) 
+      this.rows[row].innerHTML += '|'
 
-  setTimeout(() => { animTypeWriter(blinkerIndex) }, ANIM_TYPE_WRITER_FREQ)
-}
-
-setTimeout(() => { animTypeWriter(0) }, ANIM_TYPE_WRITER_DELAY)
-
-function blinkCursor() {
-  let cursor = typewriterElems[1]
-  if (cursor.innerHTML[cursor.innerHTML.length - 1] !== '|') {
-    cursor.innerHTML += '|'
-    cursor.style.left = '8.3px'
-  }
-  else {
-    cursor.innerHTML = typewriterTemp[1]
-    cursor.style.left = '0'
+    setTimeout(() => this.animTypeWriter(row, index + 1), ANIM_TYPE_WRITER_FREQ)
   }
 
-  setTimeout(blinkCursor, 500)
+  blinkCursor() {
+    const cursor = this.rows[1]
+    if (cursor.innerHTML[cursor.innerHTML.length - 1] !== '|') cursor.innerHTML += '|'
+    else cursor.innerHTML = this.rowsTemp[1]
+  
+    setTimeout(() => this.blinkCursor(), ANIM_CURSOR_BLINK_FREQ)
+  }
 }
+
+
+// Typewriter initializes by saving header text in typewriterTemp
+// and then clearing out the visible text in typewriterElems
+const header__line1 = document.getElementById('header__line1')
+const header__line2 = document.getElementById('header__line2')
+const rows = [header__line1, header__line2] as HTMLParagraphElement[]
+
+new Typewriter(rows).start()
+
+
