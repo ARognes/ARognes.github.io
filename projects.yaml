@@ -1,0 +1,76 @@
+
+
+"Collins Aerospace: Simultaneous Call Transmission":
+  description: >
+    A team of 2 software engineers and 3 electrical engineers are building a machine learning model to detect when multiple
+    radio signals are being read through an air traffic controller radio using Python and TensorFlow. We made a radio simulation
+    using Matlab and Simulink and setup a continuous integration GitLab pipeline to generate new training data on each push. 
+    Checkout the 
+    <a href="http://sddec22-13.sd.ece.iastate.edu/">Senior Design Team 13 Website</a>
+  duration: January 2022 - December 2022
+  image: 
+    src: 
+    alt: 
+
+
+Equipment-Record:
+  description: >
+    This is a Firebase/Sveltekit web app that tracks construction equipment between job sites using QR-codes, barcodes, or any text id.
+    Many companies use their own highly specialized, internally built QR-code tracking application. This implementation is specialized
+    for construction equipment. Equipment may be checked in or out by scanning the correct QR-code with the correct privileges.
+    Foremen delegate these privileges to their workers and all equipment movement may be tracked and recorded for further analysis.
+    Truckers can also be delegated to transport equipment from job site to job site at some specific time.
+    <br><br>
+    This gives a clear image of where equipment gets lost. This also has the advantage of responsibility tracking and overall better
+    equipment info for everyone in the company
+    <br>
+    Check it out! <a href="https://app.equipment-record.com">app.equipment-record.com</a>
+    <br>Username: arst@arst.ars
+    <br>Password: arstARST1234!@#$
+
+  duration: August 2021 - March 2022
+  image: 
+    src: 
+    alt: 
+
+AlgoGrid:
+  description: >
+    A JavaScript implementation of an interactive algorithm visualizer.
+    It runs an A* search algorithm as well as Conway's Game of Life.
+    A few features have broken since it was written unfortunately so I've reverted it to an older commit.
+    <br>There are buttons on the bottom left to select the tool to use.
+    The three little grey buttons allow you to select which algorithm you are using.
+    <br>Check it out! <a href="https://arognes.com/AlgoGrid">arognes.com/AlgoGrid</a>
+  duration: December 2019 - Janary 2020
+  image: 
+    src: images/AlgoGrid.avif
+    alt: AlgoGrid demo image
+
+MIT BattleCode 2020:
+  description: >
+    This was an AI competition in a team with the ISU AI Club. 
+    We wrote Python scripts to define our unit's behavior in team duels.
+    Check out the <a href="https://github.com/ARognes/Battlecode/blob/master/README.md">post-mortem</a>!
+  duration: December 2020
+  image: 
+    src: https://github.com/ARognes/Battlecode/blob/master/BestCase.gif?raw=true
+    alt: Image of best case AI
+
+Keyboard:
+  description: >
+    Designed and manufactured a 42 or 36 key, bluetooth keyboard capable of at least 100mAh battery life per side.
+  duration: April 2022 - August 2022
+  image: 
+    src: https://raw.githubusercontent.com/ARognes/Estoc/main/Images/pcb_V0.2.jpg
+    alt: Image of keyboard PCB
+
+
+Affordable Housing:
+  description: >
+    Designed an affordable house that was built in Des Moines, 
+    IA using Autodesk Revit for the <a href="https://www.pchtf.org/about-us/recent-news/austin-rognes-has-the-floor/">Polk County Housing Trust Fund</a>.
+    This was a month long competition among a few high schools in Iowa.
+  duration: March 2017
+  image: 
+    src: images/House.avif
+    alt: Image of house

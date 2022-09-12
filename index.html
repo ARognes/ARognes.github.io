@@ -23,41 +23,95 @@
   <link rel="preload" as="image" href="./images/email_icon.png">
   <link rel="preload" as="image" href="./images/resume_icon.png">
 
-
   <!-- Title bubble -->
   <header id="header">
-    <p style="position: absolute; top: -28px; width: 100%;"><i style="font-size: 20px; color: #66d9ef">let </i>Austin_Rognes<span style="font-size:20px; color: #f92672"> =</span></p>
-    <p style="position: absolute; top: 16px; width: 100%;">{<a href="https://github.com/ARognes" target="_blank" style="background-image: url('./images/github_icon.png');"></a>, 
-    <a href="https://www.linkedin.com/in/austin-rognes-7858aa171" target="_blank" style="background-image: url('./images/linkedin_icon.png');"></a>,
-    <a href="mailto: aurognes@gmail.com"  style="background-image: url('./images/email_icon.png');"></a>, 
-    <a href="./Austin Rognes - Resume.pdf" target="_blank" style="background-image: url('./images/resume_icon.png');"></a>};</p>
+    <p id="header__line1"><i id="let">l</i><i id="let">e</i><i id="let">t</i>Austin_Rognes<span style="font-size:20px; color: #f92672">=</span></p>
+    <p id="header__line2">{
+    <a href="https://github.com/ARognes" target="_blank" style="background-image: url('./images/github_icon.png');"></a>,
+    <a href="https://www.linkedin.com/in/austin-rognes-7858aa171" target="_blank" style="background-image: url('./images/linkedin_icon.png');"></a>,
+    <a href="mailto: aurognes@gmail.com"  style="background-image: url('./images/email_icon.png');"></a>,
+    <a href="./Austin Rognes - Resume.pdf" target="_blank" style="background-image: url('./images/resume_icon.png');"></a>
+    };</p>
   </header>
 
-  <div id="bio">
+  <section id="bio">
     <p id="bio__title">Software Developer</p>
     <span id="bio__paragraph">
       I'm always learning new languages, frameworks, 
-      libraries, etc. to create interesting new projects. 
-      I'm currently looking for a full time position!
+      libraries, etc. to create interesting new projects.
+      I'm currently interning part time with Hy-Vee, 
+      however I am still looking for a full time position starting December 2022!
     </span>
-    <span id="bio__paragraph">
-      Check out my projects!
-    </span>
-    <div id="bio__buttons">
-      <button type="button" onclick="document.getElementById('showcase').scrollIntoView({ block: 'start',  behavior: 'smooth' });">Projects</button>
-    </div>
-  </div>
+  </section>
 
-  <div id="experience" class="section">
+  <section id="main">
+    <h1 id="main__title">Projects</h1>
+    <section id="projects">
+<article class="showcase">
+	<div>
+		<h1>Collins Aerospace: Simultaneous Call Transmission</h1>
+		<h2>January 2022 - December 2022</h2>
+		<span>A team of 2 software engineers and 3 electrical engineers are building a machine learning model to detect when multiple radio signals are being read through an air traffic controller radio using Python and TensorFlow. We made a radio simulation using Matlab and Simulink and setup a continuous integration GitLab pipeline to generate new training data on each push.  Checkout the  <a href="http://sddec22-13.sd.ece.iastate.edu/">Senior Design Team 13 Website</a>
+</span>
+	</div>
+</article>
+<article class="showcase">
+	<div>
+		<h1>Equipment-Record</h1>
+		<h2>August 2021 - March 2022</h2>
+		<span>This is a Firebase/Sveltekit web app that tracks construction equipment between job sites using QR-codes, barcodes, or any text id. Many companies use their own highly specialized, internally built QR-code tracking application. This implementation is specialized for construction equipment. Equipment may be checked in or out by scanning the correct QR-code with the correct privileges. Foremen delegate these privileges to their workers and all equipment movement may be tracked and recorded for further analysis. Truckers can also be delegated to transport equipment from job site to job site at some specific time. <br><br> This gives a clear image of where equipment gets lost. This also has the advantage of responsibility tracking and overall better equipment info for everyone in the company <br> Check it out! <a href="https://app.equipment-record.com">app.equipment-record.com</a> <br>Username: arst@arst.ars <br>Password: arstARST1234!@#$
+</span>
+	</div>
+</article>
+<article class="showcase">
+	<div>
+		<h1>AlgoGrid</h1>
+		<h2>December 2019 - Janary 2020</h2>
+		<span>A JavaScript implementation of an interactive algorithm visualizer. It runs an A* search algorithm as well as Conway's Game of Life. A few features have broken since it was written unfortunately so I've reverted it to an older commit. <br>There are buttons on the bottom left to select the tool to use. The three little grey buttons allow you to select which algorithm you are using. <br>Check it out! <a href="https://arognes.com/AlgoGrid">arognes.com/AlgoGrid</a>
+</span>
+	</div>
+	<img loading="lazy" alt="AlgoGrid demo image" src="images/AlgoGrid.avif"</img>
+</article>
+<article class="showcase">
+	<div>
+		<h1>MIT BattleCode 2020</h1>
+		<h2>December 2020</h2>
+		<span>This was an AI competition in a team with the ISU AI Club.  We wrote Python scripts to define our unit's behavior in team duels. Check out the <a href="https://github.com/ARognes/Battlecode/blob/master/README.md">post-mortem</a>!
+</span>
+	</div>
+	<img loading="lazy" alt="Image of best case AI" src="https://github.com/ARognes/Battlecode/blob/master/BestCase.gif?raw=true"</img>
+</article>
+<article class="showcase">
+	<div>
+		<h1>Keyboard</h1>
+		<h2>April 2022 - August 2022</h2>
+		<span>Designed and manufactured a 42 or 36 key, bluetooth keyboard capable of at least 100mAh battery life per side.
+</span>
+	</div>
+	<img loading="lazy" alt="Image of keyboard PCB" src="https://raw.githubusercontent.com/ARognes/Estoc/main/Images/pcb_V0.2.jpg"</img>
+</article>
+<article class="showcase">
+	<div>
+		<h1>Affordable Housing</h1>
+		<h2>March 2017</h2>
+		<span>Designed an affordable house that was built in Des Moines,  IA using Autodesk Revit for the <a href="https://www.pchtf.org/about-us/recent-news/austin-rognes-has-the-floor/">Polk County Housing Trust Fund</a>. This was a month long competition among a few high schools in Iowa.
+</span>
+	</div>
+	<img loading="lazy" alt="Image of house" src="images/House.avif"</img>
+</article>
+		</section>
+  </section>
+
+  <!-- <section id="experience">
     <h1>Experience</h1>
     <span>
       I currently work at Hy-Vee as a Software Developer.
     </span>
-  </div>
+  </section>
 
-  <div id="showcase" class="section">
+  <section id="showcase">
     <h1>Top Projects</h1>
-    <div class="showcase-project">
+    <article class="showcase-project">
       <a href="https://github.com/ARognes/AlgoGrid"><h2>AlgoGrid</h2></a>
       <span>
         An algorithm visualizer that runs Conway's Game of Life and A* Pathfinding. It is written in TypeScript. Try it out!
@@ -73,8 +127,8 @@
         >
           arognes.com/AlgoGrid demo, check it out!
       </iframe>
-    </div>
-    <div class="showcase-project">
+    </article>
+    <article class="showcase-project">
       <a href="https://github.com/ARognes/Equipment-Record"><h2>Equipment-Record</h2></a>
       <span>
         A web-app that keeps track of construction equipment through QR-code, barcode, or unique name.
@@ -84,8 +138,8 @@
       </span>
       <br><br>
       Image / Video here
-    </div>
-    <div class="showcase-project">
+    </article>
+    <article class="showcase-project">
       <a href="https://github.com/ARognes/Battlecode"><h2>MIT BattleCode 2020</h2></a>
       <span>
         A fun competition with the Iowa State AI Club.
@@ -93,8 +147,8 @@
       </span>
       <br><br>
       Image / Video here
-    </div>
-    <div class="showcase-project">
+    </article>
+    <article class="showcase-project">
       <a href="https://github.com/ARognes/Estoc"><h2>Keyboard</h2></a>
       <span>
         A 42 key, bluetooth keyboard with at least 100mAh battery life per side. 
@@ -104,10 +158,12 @@
       </span>
       <br><br>
       <img src="./images/Keyboard.jpeg" alt="Image of custom keyboard">
-    </div>
-  </div>
+    </article>
+  </section> -->
 
   <footer>
+    <span id="Updated">Updated: September 11, 2022</span>
+    <br>
     aurognes@gmail.com
   </footer>
 </body>

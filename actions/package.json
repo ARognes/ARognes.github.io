@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "resume": "node .",
+    "projects": "node buildProjects.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.2",
-    "googleapis": "^107.0.0"
+    "googleapis": "^107.0.0",
+    "js-yaml": "^4.1.0"
   }
 }
