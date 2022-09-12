@@ -31,7 +31,7 @@ function add(title, desc, duration, src, alt) {
   article += `\t\t<h2>${ duration }</h2>\n`;
   article += `\t\t<span>${ desc }</span>\n`;
   article += '\t</div>\n';
-  article += `\t<img loading="lazy" alt="${ alt }" src="${ src }"</img>\n`;
+  if (src) article += `\t<img loading="lazy" alt="${ alt }" src="${ src }"</img>\n`;
   article += '</article>\n';
   return article;
 }

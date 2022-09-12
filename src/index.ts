@@ -114,8 +114,6 @@ function draw() {
       if (grid.tiles[x][y]) 
         ctx.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE)
 
-
-  // Draw background bubble
   if (bubble.scale < 1) bubble.scale += deltaTime / 400 * (1.001 - bubble.scale)
   bubble.left = Math.min(BUBBLE_FULL.left * bubble.scale + Math.sin(now / 1000), BUBBLE_FULL.left + 1)
   bubble.right = Math.min(BUBBLE_FULL.right * bubble.scale + Math.sin(now / 1000), BUBBLE_FULL.right + 1)
@@ -142,11 +140,12 @@ function draw() {
                     w, h - bubbleBottomHeight - offsetHeight)
   ctx.lineTo(w, h + 2)
   ctx.fill()
+  console.log(h)
 
-  // if (bubble.scale < 1) 
   window.requestAnimFrame(draw)
 }
-draw() // Not IIFE as resizing canvas would not have access to draw()
+window.requestAnimFrame(draw)
+// draw() // Not IIFE as resizing canvas would not have access to draw()
 
 
 

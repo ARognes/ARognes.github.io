@@ -94,7 +94,6 @@ function draw() {
         for (let y = 0; y < grid.height; y++)
             if (grid.tiles[x][y])
                 ctx.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-    // Draw background bubble
     if (bubble.scale < 1)
         bubble.scale += deltaTime / 400 * (1.001 - bubble.scale);
     bubble.left = Math.min(BUBBLE_FULL.left * bubble.scale + Math.sin(now / 1000), BUBBLE_FULL.left + 1);
@@ -116,10 +115,11 @@ function draw() {
     ctx.bezierCurveTo(w / 2, h - offsetHeight, 3 * w / 4, h - offsetHeight, w, h - bubbleBottomHeight - offsetHeight);
     ctx.lineTo(w, h + 2);
     ctx.fill();
-    // if (bubble.scale < 1) 
+    console.log(h);
     window.requestAnimFrame(draw);
 }
-draw(); // Not IIFE as resizing canvas would not have access to draw()
+window.requestAnimFrame(draw);
+// draw() // Not IIFE as resizing canvas would not have access to draw()
 // Resize the canvas to fill browser window dynamically
 window.addEventListener('resize', resize, false);
 window.addEventListener('focus', () => window.requestAnimFrame(draw), false);

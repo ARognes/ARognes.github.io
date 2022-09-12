@@ -356,4 +356,11 @@ footer {
   top: 0;
   left: 0;
 }
+
+#updated canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
 /*# sourceMappingURL=style.css.map */
