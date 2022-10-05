@@ -96,6 +96,8 @@ function draw() {
                 ctx.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
     if (bubble.scale < 1)
         bubble.scale += deltaTime / 400 * (1.001 - bubble.scale);
+    else
+        bubble.scale = 1;
     bubble.left = Math.min(BUBBLE_FULL.left * bubble.scale + Math.sin(now / 1000), BUBBLE_FULL.left + 1);
     bubble.right = Math.min(BUBBLE_FULL.right * bubble.scale + Math.sin(now / 1000), BUBBLE_FULL.right + 1);
     bubble.height = Math.min(BUBBLE_FULL.height * bubble.scale + Math.cos(now / 1000), BUBBLE_FULL.height + 1);
@@ -108,6 +110,7 @@ function draw() {
     // Bio bottom bubble
     const bubbleBottomHeight = bubble.height / 2 * canvas.width / 800;
     const offsetHeight = bubble.scale * (h - header.clientHeight - bio.clientHeight);
+    // const offsetHeight = h
     ctx.beginPath();
     ctx.moveTo(0, h + 2);
     ctx.lineTo(0, h - bubbleBottomHeight - offsetHeight);
@@ -115,8 +118,11 @@ function draw() {
     ctx.bezierCurveTo(w / 2, h - offsetHeight, 3 * w / 4, h - offsetHeight, w, h - bubbleBottomHeight - offsetHeight);
     ctx.lineTo(w, h + 2);
     ctx.fill();
-    console.log(h);
-    window.requestAnimFrame(draw);
+    // console.log(bubble.scale, offsetHeight, header.clientHeight, bio.clientHeight)
+    if (bubble.scale < 1)
+        window.requestAnimFrame(draw);
+    else
+        setTimeout(draw, LIFE_STEP_DURATION / 8);
 }
 window.requestAnimFrame(draw);
 // draw() // Not IIFE as resizing canvas would not have access to draw()
